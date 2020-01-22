@@ -1,0 +1,21 @@
+body{
+background-color: rgb(25, 114, 216);
+}
+header{
+color: ghostwhite;
+text-align: center;
+
+}
+section{
+    background-color: rgb(236, 244, 245);
+    text-align: center;
+    font: normal 20pt italic;
+    width: 500px;
+    border-radius: 40px;
+    margin:auto;
+
+}
+footer{
+color: gainsboro;
+text-align: center;
+}
