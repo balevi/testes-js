@@ -7,19 +7,25 @@
     <title>test function</title>
 </head>
 <body>
+    <input type="text" class="lev" value="hoje">
+    <button onclick="muda()">click</button>
     <script>
         // arrow function () se pular linha, se for 1 paramentro pode omitir () antes =>
         //var somar = (n1,n2) =>n1+n2+7
         //console.log(somar(7,7));
-
-        function Usuario(){
-            this.nome = 'levi'
-            this.idade = 25
-            this.soma = function (){
-                return `o usuario é ${this.nome} com idade ${this.idade}`
-            }
+        function muda(){
+            var clk = document.getElementsByClassName('lev')[0]
+            clk.value='foi'
+           
         }
-        console.log(new Usuario().soma()) // ou armazene variavel e variavel. ''
+
+       // function Usuario(){
+           // this.nome = 'levi'
+           // this.idade = 25
+           // this.soma = function (){
+            //    return `o usuario é ${this.nome} com idade ${this.idade}`
+           // }
+       // console.log(new Usuario().soma()) // ou armazene variavel e variavel. ''
     </script>
 </body>
 </html>
