@@ -8,7 +8,6 @@ text-align: center;
 }
 section{
     background-color: rgb(236, 244, 245);
-    text-align: center;
     font: normal 15pt italic;
     border-radius: 20%;
     height: 450px;
@@ -17,16 +16,19 @@ section{
 
 }
 
-#text{
-    width: 500px;
+#form{
+    margin-left: 150px;
 }
 
-
-
-#list{
-width: 150px;
+#Nome{
+    width: 300px;
 }
-
+#Altura{
+    width: 50px;
+}
+#Peso{
+    width: 50px;
+}
 
 footer{
 color: gainsboro;

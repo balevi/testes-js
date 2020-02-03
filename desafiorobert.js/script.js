@@ -27,7 +27,7 @@ function contagem()
                 //console.log(res)
             for(var prop in res){
                 if(res[prop]>1 && prop !=' '){
-                console.log('a letra ',prop,' repetiu '+res[prop],' vezes')
+               // console.log('a letra ',prop,' repetiu '+res[prop],' vezes')
                 result.innerHTML +=`a letra ${prop}, repetiu ${res[prop]} vezes <br>`
                 }
             }
