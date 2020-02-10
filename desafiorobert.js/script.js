@@ -18,9 +18,7 @@ function contagem()
                         }   
                         
                         return object  
-                        
-                                
-                           
+                                         
             },{}) 
             var result = document.getElementById('result')
             result.innerHTML = ''
@@ -30,14 +28,6 @@ function contagem()
                // console.log('a letra ',prop,' repetiu '+res[prop],' vezes')
                 result.innerHTML +=`a letra ${prop}, repetiu ${res[prop]} vezes <br>`
                 }
-            }
-
-            
-           
-            
-           
-         
-        
-
-                                   
+            }                             
     }
+    
