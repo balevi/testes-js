@@ -30,10 +30,13 @@ function muda2(event){
 
 function validy(event){
     cont.innerHTML = event.target.textLength
-    if(event.target.textLength>10){
+    if(event.keyCode!=8){
+    if(event.target.textLength>=10){
         alert('limite 10 caractere') 
-        text.disabled = true
-        
+        event.returnValue = false
+        //text.disabled = true
+        //console.log(event.keyCode)       
+        }
     }
 }
 function acct(){
@@ -44,7 +47,8 @@ function acct(){
 
 main.addEventListener('click',muda2,false)
 //text.addEventListener('blur',validy,false) perder o foco ativa
-text.addEventListener('keyup',validy,false)
+//text.addEventListener('keyup',validy,false)
+text.addEventListener('keydown',validy,false)
 acc.addEventListener('click',acct,false)
 
 
