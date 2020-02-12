@@ -16,29 +16,34 @@ function muda(){
 }
 
 for(let i=0;i<btn.length;i++)
-{
+    {
     btn[i].addEventListener('click',muda,false)
-}
-
-function muda2(event){
-    if(event.target.id=="btn2"){
-        main.style.backgroundColor="red"
-        btn[0].setAttribute("id","blue")
-        //btn.removeAtribute("id",'clicouu')
     }
-}
 
-function validy(event){
-    cont.innerHTML = event.target.textLength
-    if(event.keyCode!=8){
-    if(event.target.textLength>=10){
-        alert('limite 10 caractere') 
-        event.returnValue = false
-        //text.disabled = true
-        //console.log(event.keyCode)       
+function muda2(event)
+    {
+    if(event.target.id=="btn2")
+        {
+            main.style.backgroundColor="red"
+            btn[0].setAttribute("id","blue")
+            //btn.removeAtribute("id",'clicouu')
         }
     }
-}
+
+function validy(event)
+    {
+        cont.innerHTML = event.target.textLength
+    if(event.keyCode!=8)
+        {
+            if(event.target.textLength>=10)
+            {
+                alert('limite 10 caractere') 
+                event.returnValue = false
+                //text.disabled = true
+                //console.log(event.keyCode)       
+            }
+        }
+    }
 function acct(){
     if(check.checked==false){
         alert('aceite os termos!')
