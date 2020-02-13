@@ -1,0 +1,62 @@
+body{
+    background-color: rgb(25, 114, 216);
+    }
+    header{
+    color: ghostwhite;
+    text-align: center;
+    
+    }
+    section{
+        background-color: rgb(236, 244, 245);
+        text-align: center;
+        font: normal 15pt italic;
+        border-radius: 20%;
+        height: 650px;
+        width: 650px;
+        margin:auto;
+    }
+
+    fieldset{
+        border: 1px black solid;
+        height: 550px;
+        width: 350px;
+        margin:auto; 
+      
+    }
+    .display{
+        
+        width: 100px;
+        height: 70px;
+        font: normal 35pt italic;
+        background-color: rgb(224, 222, 218);
+    }
+    #disp{
+        background-color: black;
+        margin-top: 60px;
+        display: flex; 
+        justify-content: center;
+    }
+    .tecla{
+        margin-top: 40px;
+        font: normal 30pt italic;
+        width: 80px;
+    }
+
+    .tec{
+        margin-top: 40px;
+        width: 80px;
+    }
+
+    #horario{
+        float: right;
+    }
+
+    .test{
+        display: flex; 
+        justify-content: space-around;
+    }
+  
+    footer{
+    color: gainsboro;
+    text-align: center;
+    }
