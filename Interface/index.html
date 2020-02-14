@@ -9,23 +9,24 @@
     <link rel="stylesheet" href="style.css">
     
 </head>
-<body onload="horario()">
+<body onload="setTimeout('horario()',1000)">
     
     <section>
  
             <h2>INTERFACE</h2>      
         <fieldset>
+            
             <div id="horario">
                 Horario
             </div>
             <span id="disp">      
-                <button class="display">0</button>
-                <button class="display">1</button>
-                <button class="display">9</button>
-                <button class="display">7</button><br>
+                <button class="display" id="btn1">0</button>
+                <button class="display" id="btn2">1</button>
+                <button class="display" id="btn3">9</button>
+                <button class="display" id="btn4">7</button>           
             </span>
-        
-            <div >  
+            <i class="fas fa-backspace" id="back" style="font-size: 3em;" onclick="delet()"></i><br><br><br> 
+              
                     <div class="test">
                         <button class="tecla">7</button>
                     
@@ -48,13 +49,14 @@
                         <button class="tecla">3</button>
                     </div>
                     <div class="test">
-                        <span style="font-size: 4em;margin-top: 20px;"class="fas fa-arrow-alt-circle-down"></span>
+                        <span style="font-size: 4em;margin-top: 20px;"class="fas fa-arrow-alt-circle-down" onclick="entrada()"></span>
                     
                         <button class="tecla">0</button>
                     
-                        <span style="font-size: 4em;margin-top: 20px;"class="fas fa-arrow-alt-circle-up"></span>
+                        <span style="font-size: 4em;margin-top: 20px;"class="fas fa-arrow-alt-circle-up" onclick="saida()"></span>
                     </div>
-            </div>            
+             
+                       
         </fieldset>
         
 
