@@ -9,21 +9,22 @@
     <link rel="stylesheet" href="style.css">
     
 </head>
-<body onload="setTimeout('horario()',1000)">
+<body onload="setInterval('horario()',2000)">
     
     <section>
  
-            <h2>INTERFACE</h2>      
+    <img src="https://4.bp.blogspot.com/-m1WwbPYUV0U/VdHSD1q6fFI/AAAAAAAACCw/esmMxWGi58g/s1600/prodeb.jpg" alt="prodeb" width="100px" heigth="100px">
+                
         <fieldset>
             
-            <div id="horario">
+            <div id="horario"name="horas">
                 Horario
             </div>
             <span id="disp">      
-                <button class="display" id="btn1">0</button>
-                <button class="display" id="btn2">1</button>
-                <button class="display" id="btn3">9</button>
-                <button class="display" id="btn4">7</button>           
+                <button class="display" id="btn1" name="btn11"></button>
+                <button class="display" id="btn2" name="btn22"></button>
+                <button class="display" id="btn3" name="btn33"></button>
+                <button class="display" id="btn4" name="btn44"></button>           
             </span>
             <i class="fas fa-backspace" id="back" style="font-size: 3em;" onclick="delet()"></i><br><br><br> 
               
@@ -49,24 +50,28 @@
                         <button class="tecla">3</button>
                     </div>
                     <div class="test">
-                        <span style="font-size: 4em;margin-top: 20px;"class="fas fa-arrow-alt-circle-down" onclick="entrada()"></span>
+                        <label for="submit"><span style="font-size: 4em;margin-top: 20px;"class="fas fa-arrow-alt-circle-down" onclick="entrada()"></span></label>
                     
                         <button class="tecla">0</button>
                     
-                        <span style="font-size: 4em;margin-top: 20px;"class="fas fa-arrow-alt-circle-up" onclick="saida()"></span>
+                        <label for="submit"><span style="font-size: 4em;margin-top: 20px;"class="fas fa-arrow-alt-circle-up" onclick="saida()"></span></label>
                     </div>
              
-                       
+                         
         </fieldset>
         
-
     </section>
-
+    <form action="banco.php" method="get">
+            <input type = "text" name="id" hidden>
+            <input type = "text" name="cod" id="env" value="" hidden>
+            <input type = "text" name="tipo" id="tipo" value ="" hidden>
+            <input type = "text" name="horas" id="hor" value="" hidden>  
+            <input type="submit" value="Enviar"id="submit" hidden>
+        </form>
     <footer>
         <h2>&copy; Prodeb</h2>
     </footer>
-    
-    
+          
     <script src="script.js"></script>
 </body>
 </html>
