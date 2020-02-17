@@ -25,8 +25,25 @@
                         $senha = "";
                         $bd = "controle";
                         $mysqli = new mysqli($host, $usuario, $senha, $bd);
-                        $consulta = "select * from interface LIMIT 10";
-                        
+                        //conexao com o banco de dados
+                        $pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1;
+                        //verifica a página atual caso seja informada na URL, senão atribui como 1ª página 
+                        $consulta = "select * from interface";
+                        $dados = $mysqli->query($consulta);
+                        //seleciona todos os itens da tabela
+                        $total = mysqli_num_rows($dados);
+                        //conta o total de itens 
+                        $registros = 5;
+                        //seta a quantidade de itens por página, neste caso, 5 itens 
+                        $numPaginas = ceil($total/$registros);
+                        //calcula o número de páginas arredondando o resultado para cima 
+                        $inicio = ($registros*$pagina)-$registros;
+                        //variavel para calcular o início da visualização com base na página atual 
+                        $consulta = "select * from interface limit $inicio,$registros"; 
+                        $dados = $mysqli->query($consulta); 
+                        $total = mysqli_num_rows($dados);
+                        //seleciona os itens por página 
+                        //https://www.youtube.com/watch?v=KvzqN6iSaSw
                         $con = $mysqli->query($consulta) or die($mysqli->error);
                         ?>
                            <table class="table table-striped">
@@ -38,7 +55,7 @@
                                 </tr>
                             </thead>
                         <?php
-                        while ($dado = $con->fetch_array()) { ?>
+                        while ($dado = mysqli_fetch_assoc($dados)) { ?>
                             
 
                                 <tr>
@@ -50,11 +67,30 @@
                         <?php }
                         ?>
                         </table>
-        
+                        <i class="fas fa-undo-alt" onclick="volt()">  INICIO</i><br><br><br>
+                        <div id="paginate">
+                            <nav aria-label="...">
+                            <ul class="pagination">
+                            <li class="page-item ">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
+                            </li>
+                            <?php
+                            //apresentar a paginaçao
+                                for($i=1;$i < $numPaginas + 1;$i++){?>
+                                    <li class="page-item"><a class="page-link" href="relatorio.php?pagina=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                                <?php } ?>
+                         
+                            
+                            <li class="page-item">
+                            <a class="page-link" href="#">Proximo</a>
+                            </li>
+                            </ul>
+                            </nav>
+                        </div>                   
     </section>
     <footer>
         <h2>&copy; Prodeb</h2>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
-

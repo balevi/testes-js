@@ -26,4 +26,4 @@
     
     
 ?>
-<script>var leitura="<?php echo $msg;?>"; alert(leitura);location.href='index.php';</script>
+<script>var leitura="<?php echo $msg;?>"; alert(leitura);location.href='relatorio.php';</script>

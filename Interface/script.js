@@ -9,7 +9,7 @@ var hor = document.getElementById('hor')
 var tipo = document.getElementById('tipo')
 var hors = document.getElementById('horario')
 var submit = document.getElementById('submit')
-
+var voltar= document.querySelectorAll(".voltar")
 
     function horario(){
     
@@ -34,21 +34,12 @@ var submit = document.getElementById('submit')
                 display[i].innerHTML= event.target.innerHTML
                 return
             }
-            
-            
-        }    
-        
+          
+        }           
                     btn1.innerHTML= btn2.innerHTML
                     btn2.innerHTML= btn3.innerHTML
                     btn3.innerHTML= btn4.innerHTML
-                    btn4.innerHTML=event.target.innerHTML 
-                
-                
-        
-        
-        
-            
-          
+                    btn4.innerHTML=event.target.innerHTML     
     }
 
     for(let i=0;i<btn.length;i++)
@@ -56,37 +47,36 @@ var submit = document.getElementById('submit')
         btn[i].addEventListener('click',muda,false)
     }
    
-
     function saida(){
-    if(btn1.innerHTML==""||btn2.innerHTML==""||btn3.innerHTML==""||btn4.innerHTML==""){
-        alert("Preencha todos Numeros!")
-        submit.id=null
-    }else{
-        env.value=btn1.innerHTML+btn2.innerHTML+btn3.innerHTML+btn4.innerHTML
-        hor.value=hors.innerText
-        tipo.value="Saida" 
-    alert(`Saida do Numero: ${btn1.innerHTML+btn2.innerHTML+btn3.innerHTML+btn4.innerHTML}`)
-        submit.id="submit"
-    btn1.innerHTML= ""
-    btn2.innerHTML= ""
-    btn3.innerHTML= ""
-    btn4.innerHTML= ""
-        } 
+        if(btn1.innerHTML==""||btn2.innerHTML==""||btn3.innerHTML==""||btn4.innerHTML==""){
+            alert("Preencha todos Numeros!")
+            submit.id=null
+        }else{
+                env.value=btn1.innerHTML+btn2.innerHTML+btn3.innerHTML+btn4.innerHTML
+                hor.value=hors.innerText
+                tipo.value="Saida" 
+                alert(`Saida do Numero: ${btn1.innerHTML+btn2.innerHTML+btn3.innerHTML+btn4.innerHTML}`)
+                submit.id="submit"
+                btn1.innerHTML= ""
+                btn2.innerHTML= ""
+                btn3.innerHTML= ""
+                btn4.innerHTML= ""
+            } 
     }
     function entrada(){
     if(btn1.innerHTML==""||btn2.innerHTML==""||btn3.innerHTML==""||btn4.innerHTML==""){
         alert("Preencha todos Numeros!")
         submit.id=null
     }else{
-        env.value=btn1.innerHTML+btn2.innerHTML+btn3.innerHTML+btn4.innerHTML
-        hor.value=hors.innerText
-        tipo.value="Entrada" 
-    alert(`Entrada do Numero: ${btn1.innerHTML+btn2.innerHTML+btn3.innerHTML+btn4.innerHTML}`)
-    btn1.innerHTML= ""
-    btn2.innerHTML= ""
-    btn3.innerHTML= ""
-    btn4.innerHTML= ""
-    submit.id="submit"
+            env.value=btn1.innerHTML+btn2.innerHTML+btn3.innerHTML+btn4.innerHTML
+            hor.value=hors.innerText
+            tipo.value="Entrada" 
+            alert(`Entrada do Numero: ${btn1.innerHTML+btn2.innerHTML+btn3.innerHTML+btn4.innerHTML}`)
+            btn1.innerHTML= ""
+            btn2.innerHTML= ""
+            btn3.innerHTML= ""
+            btn4.innerHTML= ""
+            submit.id="submit"
         }   
     }
     function delet(){
@@ -97,4 +87,13 @@ var submit = document.getElementById('submit')
             return
             }
         }
+    }
+
+    function relat(){
+        location.href='relatorio.php'
+        
+    }
+    function volt(){
+        location.href='index.php'
+        
     }

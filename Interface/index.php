@@ -10,13 +10,13 @@
     
 </head>
 <body onload="setInterval('horario()',2000)">
-    
+  
     <section>
- 
+    
     <img src="https://4.bp.blogspot.com/-m1WwbPYUV0U/VdHSD1q6fFI/AAAAAAAACCw/esmMxWGi58g/s1600/prodeb.jpg" alt="prodeb" width="100px" heigth="100px">
-                
+    
         <fieldset>
-            
+        <i class="fas fa-paste"  style="font-size: 3em;" id="paper" onclick="relat()"></i>
             <div id="horario"name="horas">
                 Horario
             </div>
@@ -27,7 +27,7 @@
                 <button class="display" id="btn4" name="btn44"></button>           
             </span>
             <i class="fas fa-backspace" id="back" style="font-size: 3em;" onclick="delet()"></i><br><br><br> 
-              
+            
                     <div class="test">
                         <button class="tecla">7</button>
                     
@@ -56,10 +56,10 @@
                     
                         <label for="submit"><span style="font-size: 4em;margin-top: 20px;"class="fas fa-arrow-alt-circle-up" onclick="saida()"></span></label>
                     </div>
-             
+                  
                          
         </fieldset>
-        
+            
     </section>
     <form action="banco.php" method="get">
             <input type = "text" name="id" hidden>
