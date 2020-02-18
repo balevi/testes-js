@@ -16,7 +16,7 @@
     <img src="https://4.bp.blogspot.com/-m1WwbPYUV0U/VdHSD1q6fFI/AAAAAAAACCw/esmMxWGi58g/s1600/prodeb.jpg" alt="prodeb" width="100px" heigth="100px">
     
         <fieldset>
-        <i class="fas fa-paste"  style="font-size: 3em;" id="paper" onclick="relat()"></i>
+        <a href="relatorio.php" id="link"><i class="fas fa-paste"  style="font-size: 3em;" id="paper"></i></a>
             <div id="horario"name="horas">
                 Horario
             </div>
@@ -50,11 +50,11 @@
                         <button class="tecla">3</button>
                     </div>
                     <div class="test">
-                        <label for="submit"><span style="font-size: 4em;margin-top: 20px;"class="fas fa-arrow-alt-circle-down" onclick="entrada()"></span></label>
+                        <label for="submit"><span style="font-size: 4em;margin-top: 20px;color: green"class="fas fa-arrow-alt-circle-down" onclick="entrada()"></span></label>
                     
                         <button class="tecla">0</button>
                     
-                        <label for="submit"><span style="font-size: 4em;margin-top: 20px;"class="fas fa-arrow-alt-circle-up" onclick="saida()"></span></label>
+                        <label for="submit"><span style="font-size: 4em;margin-top: 20px;color: red"class="fas fa-arrow-alt-circle-up" onclick="saida()"></span></label>
                     </div>
                   
                          
@@ -66,6 +66,7 @@
             <input type = "text" name="cod" id="env" value="" hidden>
             <input type = "text" name="tipo" id="tipo" value ="" hidden>
             <input type = "text" name="horas" id="hor" value="" hidden>  
+            <input type = "text" name="data" id="data" value="" hidden>  
             <input type="submit" value="Enviar"id="submit" hidden>
         </form>
     <footer>

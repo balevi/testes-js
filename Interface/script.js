@@ -8,14 +8,29 @@ var env = document.getElementById('env')
 var hor = document.getElementById('hor')
 var tipo = document.getElementById('tipo')
 var hors = document.getElementById('horario')
+var datatual = document.getElementById('data')
 var submit = document.getElementById('submit')
+var volt = document.getElementById('volt')
 var voltar= document.querySelectorAll(".voltar")
 
-    function horario(){
+    
+
+
+function horario(){
     
     var data = new Date()
     var horas = data.getHours()
     var minutos = data.getMinutes()
+    var dia = data.getDate();
+    var mes = data.getMonth()+1;
+    var ano = data.getFullYear();
+
+    if(mes<10){
+        mes= '0'+mes
+    }
+    datatual.value=`${dia}/${mes}/${ano}`
+    
+    
     if(minutos<10){
         minutos= '0'+minutos
     }
@@ -23,29 +38,43 @@ var voltar= document.querySelectorAll(".voltar")
         horas= '0'+horas
     }
     hors.innerHTML= `<strong> ${horas} : ${minutos}</strong>`
+    
     }
-
+    
     function muda(event)
     {
+             
+        if(btn1.innerHTML=="" && btn2.innerHTML=="" && btn3.innerHTML=="" && btn4.innerHTML==""){
+            btn4.innerHTML=event.target.innerHTML 
+            return
+        }
+
+
+        /*
         for(let i=0;i<4;i++)
+       // for(let i=3;i>-1;i--)
         {   
-            
+            //console.log(i)
             if(display[i].innerHTML==""){
-                display[i].innerHTML= event.target.innerHTML
-                return
-            }
-          
-        }           
+                    display[i].innerHTML= event.target.innerHTML
+                   //esse caso era pra ser todos estiver ""
+                return            
+            }       
+        }   
+        */     
+       
+        if(btn1.innerHTML=="" && btn2.innerHTML=="" && btn3.innerHTML==""){
                     btn1.innerHTML= btn2.innerHTML
                     btn2.innerHTML= btn3.innerHTML
                     btn3.innerHTML= btn4.innerHTML
                     btn4.innerHTML=event.target.innerHTML     
+        }
+    
     }
-
-    for(let i=0;i<btn.length;i++)
-    {
-        btn[i].addEventListener('click',muda,false)
-    }
+   for(let i=0;i<btn.length;i++)
+   {
+       btn[i].addEventListener('click',muda,false)
+   }
    
     function saida(){
         if(btn1.innerHTML==""||btn2.innerHTML==""||btn3.innerHTML==""||btn4.innerHTML==""){
@@ -70,6 +99,7 @@ var voltar= document.querySelectorAll(".voltar")
     }else{
             env.value=btn1.innerHTML+btn2.innerHTML+btn3.innerHTML+btn4.innerHTML
             hor.value=hors.innerText
+            
             tipo.value="Entrada" 
             alert(`Entrada do Numero: ${btn1.innerHTML+btn2.innerHTML+btn3.innerHTML+btn4.innerHTML}`)
             btn1.innerHTML= ""
@@ -87,13 +117,4 @@ var voltar= document.querySelectorAll(".voltar")
             return
             }
         }
-    }
-
-    function relat(){
-        location.href='relatorio.php'
-        
-    }
-    function volt(){
-        location.href='index.php'
-        
     }

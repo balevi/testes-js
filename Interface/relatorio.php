@@ -33,7 +33,7 @@
                         //seleciona todos os itens da tabela
                         $total = mysqli_num_rows($dados);
                         //conta o total de itens 
-                        $registros = 5;
+                        $registros = 15;
                         //seta a quantidade de itens por página, neste caso, 5 itens 
                         $numPaginas = ceil($total/$registros);
                         //calcula o número de páginas arredondando o resultado para cima 
@@ -52,6 +52,7 @@
                                     <th>Codigo</th>
                                     <th>Tipo</th>
                                     <th>Horario</th>
+                                    <th>Data</th>
                                 </tr>
                             </thead>
                         <?php
@@ -62,15 +63,17 @@
                                 <td><?php echo $dado["codigo"]; ?></td>
                                 <td><?php echo $dado["tipo"]; ?></td>
                                 <td><?php echo $dado["horas"]; ?></td>
+                                <td><?php echo $dado["data"]; ?></td>
                                 </tr>
                             
                         <?php }
                         ?>
                         </table>
-                        <i class="fas fa-undo-alt" onclick="volt()">  INICIO</i><br><br><br>
-                        <div id="paginate">
+                        <a href="index.php"><i class="fas fa-undo-alt">  INICIO</i></a><br><br><br>
+
+                        
                             <nav aria-label="...">
-                            <ul class="pagination">
+                            <ul class="pagination justify-content-center">
                             <li class="page-item ">
                             <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
                             </li>
@@ -86,7 +89,7 @@
                             </li>
                             </ul>
                             </nav>
-                        </div>                   
+                                          
     </section>
     <footer>
         <h2>&copy; Prodeb</h2>
