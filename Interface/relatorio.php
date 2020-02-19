@@ -12,12 +12,12 @@
 </head>
 <body>
     
-    <section>
+    
  
-    <img src="https://4.bp.blogspot.com/-m1WwbPYUV0U/VdHSD1q6fFI/AAAAAAAACCw/esmMxWGi58g/s1600/prodeb.jpg" alt="prodeb" width="100px" heigth="100px">
+   
                 
       
- 
+    
         
                         <?php 
                         $host = "localhost";
@@ -39,19 +39,24 @@
                         //calcula o número de páginas arredondando o resultado para cima 
                         $inicio = ($registros*$pagina)-$registros;
                         //variavel para calcular o início da visualização com base na página atual 
-                        $consulta = "select * from interface limit $inicio,$registros"; 
+                        $consulta = "select * from interface ORDER BY id desc limit $inicio,$registros"; 
                         $dados = $mysqli->query($consulta); 
                         $total = mysqli_num_rows($dados);
                         //seleciona os itens por página 
                         //https://www.youtube.com/watch?v=KvzqN6iSaSw
                         $con = $mysqli->query($consulta) or die($mysqli->error);
                         ?>
+                             <img src="https://4.bp.blogspot.com/-m1WwbPYUV0U/VdHSD1q6fFI/AAAAAAAACCw/esmMxWGi58g/s1600/prodeb.jpg"  class="rounded mx-auto d-block" alt="prodeb" width="100px" heigth="100px">
+                            
+                            <br><section id="sect">
+                            <a href="index.php"  class="pagination justify-content-center mx-3 h3"><i class="fas fa-home ">  INÍCIO</i></a>
+                            <!--<i class="fas fa-undo-alt ">INICIO</i>-->
                            <table class="table table-striped">
                            <thead class="thead-dark">
                                 <tr>
-                                    <th>Codigo</th>
+                                    <th>Código</th>
                                     <th>Tipo</th>
-                                    <th>Horario</th>
+                                    <th>Horário</th>
                                     <th>Data</th>
                                 </tr>
                             </thead>
@@ -69,7 +74,7 @@
                         <?php }
                         ?>
                         </table>
-                        <a href="index.php"><i class="fas fa-undo-alt">  INICIO</i></a><br><br><br>
+                        
 
                         
                             <nav aria-label="...">
@@ -89,8 +94,8 @@
                             </li>
                             </ul>
                             </nav>
-                                          
-    </section>
+                                     
+         </section>
     <footer>
         <h2>&copy; Prodeb</h2>
     </footer>

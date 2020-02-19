@@ -6,14 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>INTERFACE</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     
 </head>
 <body onload="setInterval('horario()',2000)">
   
-    <section>
+    <section id="secinic">
     
-    <img src="https://4.bp.blogspot.com/-m1WwbPYUV0U/VdHSD1q6fFI/AAAAAAAACCw/esmMxWGi58g/s1600/prodeb.jpg" alt="prodeb" width="100px" heigth="100px">
+    <img src="https://4.bp.blogspot.com/-m1WwbPYUV0U/VdHSD1q6fFI/AAAAAAAACCw/esmMxWGi58g/s1600/prodeb.jpg" alt="prodeb" class="rounded mx-auto d-block" width="100px" heigth="100px"><br>
     
         <fieldset>
         <a href="relatorio.php" id="link"><i class="fas fa-paste"  style="font-size: 3em;" id="paper"></i></a>
@@ -59,8 +60,8 @@
                   
                          
         </fieldset>
-            
-    </section>
+        </section>
+    
     <form action="banco.php" method="get">
             <input type = "text" name="id" hidden>
             <input type = "text" name="cod" id="env" value="" hidden>

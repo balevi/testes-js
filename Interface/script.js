@@ -43,34 +43,28 @@ function horario(){
     
     function muda(event)
     {
-             
-        if(btn1.innerHTML=="" && btn2.innerHTML=="" && btn3.innerHTML=="" && btn4.innerHTML==""){
-            btn4.innerHTML=event.target.innerHTML 
-            return
-        }
-
-
-        /*
+        if(btn1.innerHTML!="" && (btn2.innerHTML=="" || btn3.innerHTML=="" || btn4.innerHTML=="")){
         for(let i=0;i<4;i++)
        // for(let i=3;i>-1;i--)
         {   
-            //console.log(i)
+   
             if(display[i].innerHTML==""){
                     display[i].innerHTML= event.target.innerHTML
-                   //esse caso era pra ser todos estiver ""
+  
                 return            
             }       
         }   
-        */     
-       
-        if(btn1.innerHTML=="" && btn2.innerHTML=="" && btn3.innerHTML==""){
+            
+    }
+ 
                     btn1.innerHTML= btn2.innerHTML
                     btn2.innerHTML= btn3.innerHTML
                     btn3.innerHTML= btn4.innerHTML
-                    btn4.innerHTML=event.target.innerHTML     
-        }
-    
+                    btn4.innerHTML=event.target.innerHTML 
     }
+
+
+
    for(let i=0;i<btn.length;i++)
    {
        btn[i].addEventListener('click',muda,false)
@@ -84,12 +78,12 @@ function horario(){
                 env.value=btn1.innerHTML+btn2.innerHTML+btn3.innerHTML+btn4.innerHTML
                 hor.value=hors.innerText
                 tipo.value="Saida" 
-                alert(`Saida do Numero: ${btn1.innerHTML+btn2.innerHTML+btn3.innerHTML+btn4.innerHTML}`)
-                submit.id="submit"
-                btn1.innerHTML= ""
-                btn2.innerHTML= ""
-                btn3.innerHTML= ""
-                btn4.innerHTML= ""
+                let r =confirm(`Saida do Numero: ${btn1.innerHTML+btn2.innerHTML+btn3.innerHTML+btn4.innerHTML}`)
+                submit.id=null
+                if (r==true)
+                {
+                    submit.id="submit" 
+                }
             } 
     }
     function entrada(){
@@ -101,12 +95,12 @@ function horario(){
             hor.value=hors.innerText
             
             tipo.value="Entrada" 
-            alert(`Entrada do Numero: ${btn1.innerHTML+btn2.innerHTML+btn3.innerHTML+btn4.innerHTML}`)
-            btn1.innerHTML= ""
-            btn2.innerHTML= ""
-            btn3.innerHTML= ""
-            btn4.innerHTML= ""
-            submit.id="submit"
+            let r =confirm(`Entrada do Numero: ${btn1.innerHTML+btn2.innerHTML+btn3.innerHTML+btn4.innerHTML}`)          
+            submit.id=null
+            if (r==true)
+            {
+                submit.id="submit" 
+            }
         }   
     }
     function delet(){

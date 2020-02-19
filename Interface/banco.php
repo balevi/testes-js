@@ -23,8 +23,9 @@
 
     }else{
         $msg = "Dados incompletos!";
+        // alert(leitura);
     }
     
     
 ?>
-<script>var leitura="<?php echo $msg;?>"; alert(leitura);location.href='relatorio.php';</script>
+<script>var leitura="<?php echo $msg;?>";location.href='relatorio.php';</script>
