@@ -14,7 +14,7 @@
   
     
     
-    <img src="https://4.bp.blogspot.com/-m1WwbPYUV0U/VdHSD1q6fFI/AAAAAAAACCw/esmMxWGi58g/s1600/prodeb.jpg" alt="prodeb" class="rounded mx-auto d-block" width="100px" heigth="100px"><br>
+    <img src="https://4.bp.blogspot.com/-m1WwbPYUV0U/VdHSD1q6fFI/AAAAAAAACCw/esmMxWGi58g/s1600/prodeb.jpg" id="logo1" alt="prodeb" class="rounded mx-auto d-block" width="100px" heigth="100px">
     <div class="container">
         <fieldset>
         <a href="relatorio.php" id="link"><i class="fas fa-paste"  style="font-size: 3em;" id="paper"></i></a>
@@ -27,7 +27,7 @@
                 <button class="display" id="btn3" name="btn33"></button>
                 <button class="display" id="btn4" name="btn44"></button>           
             </span>
-            <i class="fas fa-backspace" id="back" style="font-size: 3em;" onclick="delet()"></i><br><br><br> 
+            <i class="fas fa-backspace" id="back" style="font-size: 3em;" onclick="delet()"></i><br><br> 
             
                     <div class="test">
                         <button class="tecla teclainic" >7</button>

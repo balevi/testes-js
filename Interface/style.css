@@ -16,16 +16,20 @@ body{
         margin:auto;
     }
 
+    #logo1{
+        margin: 30px;
+    }
+    #logo2{
+        margin: 20px;
+    }
+
     fieldset{
         background-color: rgb(236, 244, 245);
         border: 1px black solid;
-
         height: 530px;
         width: 440px; 
-        
-         
-      
     }
+    
     .display{
         
         width: 90px;
@@ -65,7 +69,6 @@ body{
    }
 
     #link{
-    
     text-decoration:none;
     background-color: black;
     color:#000000;
@@ -98,3 +101,14 @@ body{
     color: gainsboro;
     text-align: center;
     }
+
+    @media screen and (max-width: 385px) {
+            #logo1{
+                margin: 5px;
+            }
+            .container1{
+                display: flex; 
+                justify-content: center;
+                
+               }
+      }

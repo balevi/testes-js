@@ -39,18 +39,18 @@
                         //https://www.youtube.com/watch?v=KvzqN6iSaSw
                         $con = $mysqli->query($consulta) or die($mysqli->error);
                         ?>
-                             <img src="https://4.bp.blogspot.com/-m1WwbPYUV0U/VdHSD1q6fFI/AAAAAAAACCw/esmMxWGi58g/s1600/prodeb.jpg"  class="rounded mx-auto d-block" alt="prodeb" width="100px" heigth="100px">
-                            
-                            <br><section id="sect">
-                            <a href="index.php"  class="pagination justify-content-center mx-3 h3"><i class="fas fa-home ">  INÍCIO</i></a>
+                             <img src="https://4.bp.blogspot.com/-m1WwbPYUV0U/VdHSD1q6fFI/AAAAAAAACCw/esmMxWGi58g/s1600/prodeb.jpg"  id="logo2" class="rounded mx-auto d-block" alt="prodeb" width="100px" heigth="100px">
+                             <div class ="container1">
+                            <section id="sect">
+                            <a href="index.php" class="pagination justify-content-center mx-3 h3"><i class="fas fa-home ">  INÍCIO</i></a>
                             <!--<i class="fas fa-undo-alt ">INICIO</i>-->
-                           <table class="table table-striped">
+                           <table class="table table-sm table-striped" id="tabela">
                            <thead class="thead-dark">
                                 <tr>
-                                    <th><h4>Código</h4></th>
-                                    <th><h4>Tipo</h4></th>
-                                    <th><h4>Horário</h4></th>
-                                    <th><h4>Data</h4></th>
+                                    <th><h5>Código</h5></th>
+                                    <th><h5>Tipo</h5></th>
+                                    <th><h5>Horário</h5></th>
+                                    <th><h5>Data</h5></th>
                                 </tr>
                             </thead>
                         <?php
@@ -89,6 +89,7 @@
                             </nav>
                                      
          </section>
+                                </div>
     <footer>
         <h2>&copy; PRODEB</h2>
     </footer>

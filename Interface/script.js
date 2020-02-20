@@ -54,9 +54,9 @@ function horario(){
                 return            
             }       
         }   
-            
+          
     }
- 
+
                     btn1.innerHTML= btn2.innerHTML
                     btn2.innerHTML= btn3.innerHTML
                     btn3.innerHTML= btn4.innerHTML
@@ -71,8 +71,8 @@ function horario(){
    }
    
     function saida(){
-        if(btn1.innerHTML==""||btn2.innerHTML==""||btn3.innerHTML==""||btn4.innerHTML==""){
-            alert("Preencha todos Numeros!")
+        if(btn2.innerHTML==""){
+            alert("Preencha no mínimo 3 Numeros!")
             submit.id=null
         }else{
                 env.value=btn1.innerHTML+btn2.innerHTML+btn3.innerHTML+btn4.innerHTML
@@ -87,8 +87,8 @@ function horario(){
             } 
     }
     function entrada(){
-    if(btn1.innerHTML==""||btn2.innerHTML==""||btn3.innerHTML==""||btn4.innerHTML==""){
-        alert("Preencha todos Numeros!")
+    if(btn2.innerHTML==""){
+        alert("Preencha no mínimo 3 Numeros!")
         submit.id=null
     }else{
             env.value=btn1.innerHTML+btn2.innerHTML+btn3.innerHTML+btn4.innerHTML
