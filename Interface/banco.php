@@ -28,4 +28,4 @@
     
     
 ?>
-<script>var leitura="<?php echo $msg;?>";location.href='relatorio.php';</script>
+<script>var leitura="<?php echo $msg;?>";location.href='index.php';</script>

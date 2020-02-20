@@ -12,13 +12,6 @@
 </head>
 <body>
     
-    
- 
-   
-                
-      
-    
-        
                         <?php 
                         $host = "localhost";
                         $usuario = "root";
@@ -54,10 +47,10 @@
                            <table class="table table-striped">
                            <thead class="thead-dark">
                                 <tr>
-                                    <th>Código</th>
-                                    <th>Tipo</th>
-                                    <th>Horário</th>
-                                    <th>Data</th>
+                                    <th><h4>Código</h4></th>
+                                    <th><h4>Tipo</h4></th>
+                                    <th><h4>Horário</h4></th>
+                                    <th><h4>Data</h4></th>
                                 </tr>
                             </thead>
                         <?php
@@ -97,7 +90,7 @@
                                      
          </section>
     <footer>
-        <h2>&copy; Prodeb</h2>
+        <h2>&copy; PRODEB</h2>
     </footer>
     <script src="script.js"></script>
 </body>

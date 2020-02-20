@@ -20,15 +20,15 @@ body{
         background-color: rgb(236, 244, 245);
         border: 1px black solid;
 
-        height: 600px;
-        width: 350px; 
+        height: 530px;
+        width: 440px; 
         
-        margin:auto; 
+         
       
     }
     .display{
         
-        width: 100px;
+        width: 90px;
         height: 70px;
         font: normal 35pt italic;
         background-color: rgb(224, 222, 218);
@@ -38,10 +38,21 @@ body{
         display: flex; 
         justify-content: center;
     }
-    .tecla{
-        margin-top: 40px;
+    .teclasty{
+        margin-top: 30px;
         font: normal 30pt italic;
         width: 80px;
+    }
+
+    .teclainic{
+       
+        font: normal 30pt italic;
+        width: 80px;
+    }
+
+    .test{
+        display: flex; 
+        justify-content: space-around;    
     }
 
    #sect{
@@ -61,24 +72,25 @@ body{
     
     }
     
-   
+   .container{
+    display: flex; 
+    justify-content: center;
+   }
     
 
     #horario{
         float: right;
+        padding-right: 30px;
     }
 
     #back{
         float: right;
-    }
-
-    .test{
-        display: flex; 
-        justify-content: space-around;    
+        padding-right: 30px;
     }
 
     #paper{
        float: left;
+       padding-left: 30px;
        
     }
   
