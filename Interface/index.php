@@ -10,64 +10,61 @@
     <link rel="stylesheet" href="style.css">
     
 </head>
-<body onload="setInterval('horario()',2000)">
-  
-    
-    
-    <img src="https://4.bp.blogspot.com/-m1WwbPYUV0U/VdHSD1q6fFI/AAAAAAAACCw/esmMxWGi58g/s1600/prodeb.jpg" alt="prodeb" class="rounded mx-auto d-block" width="100px" heigth="100px"><br>
-    <div class="container">
+<body onload="setInterval('time()',2000)">
+
+
+    <img src="https://4.bp.blogspot.com/-m1WwbPYUV0U/VdHSD1q6fFI/AAAAAAAACCw/esmMxWGi58g/s1600/prodeb.jpg" alt="prodeb" class="rounded-pill mx-auto d-block my-2" width="120px" heigth="100px">
+    <div class="d-flex justify-content-center">
         <fieldset>
-        <a href="relatorio.php" id="link"><i class="fas fa-paste"  style="font-size: 3em;" id="paper"></i></a>
-            <div id="horario"name="horas">
-               <strong> Horário </strong>
+        <a href="relatorio.php" class="fas fa-paste"id="link1"></a>
+            <div id="horario">
+               <strong> <?php date_default_timezone_set('America/Sao_Paulo'); echo  date('H : i');?></strong>
             </div>
-            <span id="disp">      
-                <button class="display" id="btn1" name="btn11"></button>
-                <button class="display" id="btn2" name="btn22"></button>
-                <button class="display" id="btn3" name="btn33"></button>
-                <button class="display" id="btn4" name="btn44"></button>           
-            </span>
-            <i class="fas fa-backspace" id="back" style="font-size: 3em;" onclick="delet()"></i><br><br><br> 
+            <div class="d-flex justify-content-center mt-5 mr-5" >      
+                <button class="tecladisplay" id="btn1" name="btn11"></button>
+                <button class="tecladisplay" id="btn2" name="btn22"></button>
+                <button class="tecladisplay" id="btn3" name="btn33"></button>
+                <button class="tecladisplay" id="btn4" name="btn44"></button>           
+            </div>
+            <i class="fas fa-backspace " id="backspace" style="font-size: 3em;" onclick="delet()"></i>
             
-                    <div class="test">
-                        <button class="tecla teclainic" >7</button>
+                    <div class="d-flex justify-content-around mt-5">
+                        <button class="teclas">7</button>
                     
-                        <button class="tecla teclainic" >8</button>
+                        <button class="teclas">8</button>
                     
-                        <button class="tecla teclainic" >9</button>
+                        <button class="teclas">9</button>
                     </div>
-                    <div class="test">  
-                        <button class="tecla teclasty">4</button>
+                    <div class="d-flex justify-content-around">  
+                        <button class="teclas">4</button>
                     
-                        <button class="tecla teclasty">5</button>
+                        <button class="teclas">5</button>
                     
-                        <button class="tecla teclasty">6</button>
+                        <button class="teclas">6</button>
                     </div>
-                    <div class="test">
-                        <button class="tecla teclasty">1</button>
+                    <div class="d-flex justify-content-around">
+                        <button class="teclas">1</button>
                     
-                        <button class="tecla teclasty">2</button>
+                        <button class="teclas">2</button>
                    
-                        <button class="tecla teclasty">3</button>
+                        <button class="teclas">3</button>
                     </div>
-                    <div class="test">
-                        <label for="submit"><span style="font-size: 4em;margin-top: 20px;color: green"class="fas fa-arrow-alt-circle-down" onclick="entrada()"></span></label>
+                    <div class="d-flex justify-content-around">
+                        <label for="submit"><span style="font-size: 4em;color: green" id="Entrada" class="fas fa-arrow-alt-circle-down mt-3"></span></label>
                     
-                        <button class="tecla teclasty">0</button>
+                        <button class="teclas">0</button>
                     
-                        <label for="submit"><span style="font-size: 4em;margin-top: 20px;color: red"class="fas fa-arrow-alt-circle-up" onclick="saida()"></span></label>
+                        <label for="submit"><span style="font-size: 4em;color: red" id="Saida" class="fas fa-arrow-alt-circle-up mt-3"></span></label>
                     </div>
                   
                          
         </fieldset>
        
         </div>
-    <form action="banco.php" method="get">
+        <form action="banco.php" method="get">
             <input type = "text" name="id" hidden>
             <input type = "text" name="cod" id="env" value="" hidden>
-            <input type = "text" name="tipo" id="tipo" value ="" hidden>
-            <input type = "text" name="horas" id="hor" value="" hidden>  
-            <input type = "text" name="data" id="data" value="" hidden>  
+            <input type = "text" name="tipo" id="tipo" value ="" hidden >
             <input type="submit" value="Enviar"id="submit" hidden>
         </form>
     <footer>
