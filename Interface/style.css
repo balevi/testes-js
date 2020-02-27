@@ -1,114 +1,64 @@
-body{
-    background-color: rgb(25, 114, 216);
-    }
-    header{
-    color: ghostwhite;
-    text-align: center;
-    
-    }
-    #secinic{
-        background-color: rgb(236, 244, 245);
-        text-align: center;
-        font: normal 15pt italic;
-        border-radius: 20%;
-        height: 700px;
-        width: 680px;
-        margin:auto;
-    }
+    body{
+            background-color: rgb(25, 114, 216);
+        }
 
-    #logo1{
-        margin: 30px;
-    }
-    #logo2{
-        margin: 20px;
-    }
-
+    /*section{
+                background-color: rgb(236, 244, 245);
+                text-align: center;
+                border-radius: 20%;
+                height: 700px;
+                width: 680px;
+                margin:auto;
+            }
+    */
     fieldset{
-        background-color: rgb(236, 244, 245);
-        border: 1px black solid;
-        height: 530px;
-        width: 440px; 
-    }
-    
-    .display{
+                background-color: rgb(236, 244, 245);
+                border: 1px black solid;
+                height: 510px;
+                width: 440px;     
+            }
+
+    .tecladisplay{       
+                    width: 90px;
+                    height: 70px;
+                    font: normal 35pt italic;
+                    background-color: rgb(224, 222, 218);
+                 }
         
-        width: 90px;
-        height: 70px;
-        font: normal 35pt italic;
-        background-color: rgb(224, 222, 218);
-    }
-    #disp{
-        margin-top: 60px;
-        display: flex; 
-        justify-content: center;
-    }
-    .teclasty{
-        margin-top: 30px;
-        font: normal 30pt italic;
-        width: 80px;
-    }
+    .teclas{
+                font: normal 30pt italic;
+                width: 80px;
+            }
 
-    .teclainic{
-       
-        font: normal 30pt italic;
-        width: 80px;
-    }
-
-    .test{
-        display: flex; 
-        justify-content: space-around;    
-    }
-
-   #sect{
-    background-color: rgb(236, 244, 245);
-   }
-
-   #link2{
-    display: flex; 
-    justify-content: center;
-   }
-
-    #link{
-    text-decoration:none;
-    background-color: black;
-    color:#000000;
-    
-    }
-    
-   .container{
-    display: flex; 
-    justify-content: center;
-   }
-    
-
-    #horario{
-        float: right;
-        padding-right: 30px;
-    }
-
-    #back{
-        float: right;
-        padding-right: 30px;
-    }
-
-    #paper{
-       float: left;
-       padding-left: 30px;
-       
-    }
+    #link1{
+            font-size: 50px;
+            text-decoration: none;
+            color:#000000;     
+          }
+  
   
     footer{
-    color: gainsboro;
-    text-align: center;
-    }
+            color: gainsboro;
+            text-align: center;
+          }
 
-    @media screen and (max-width: 385px) {
-            #logo1{
-                margin: 5px;
+
+       #sect{
+                background-color: rgb(236, 244, 245);
             }
-            .container1{
-                display: flex; 
-                justify-content: center;
-                
-               }
-      }
+
+
+    @media screen and (min-height: 730px){
+       
+        #main{
+                margin-top: 40px;
+             }
+        
+        #logo1{
+                width: 200px;
+              }
+        #logo2{
+                 width: 200px;
+              }
+        
+                                            }

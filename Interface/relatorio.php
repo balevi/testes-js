@@ -26,7 +26,7 @@
                         //seleciona todos os itens da tabela
                         $total = mysqli_num_rows($dados);
                         //conta o total de itens 
-                        $registros = 15;
+                        $registros = 13;
                         //seta a quantidade de itens por página, neste caso, 5 itens 
                         $numPaginas = ceil($total/$registros);
                         //calcula o número de páginas arredondando o resultado para cima 
@@ -39,10 +39,10 @@
                         //https://www.youtube.com/watch?v=KvzqN6iSaSw
                         $con = $mysqli->query($consulta) or die($mysqli->error);
                         ?>
-                             <img src="https://4.bp.blogspot.com/-m1WwbPYUV0U/VdHSD1q6fFI/AAAAAAAACCw/esmMxWGi58g/s1600/prodeb.jpg"  id="logo2" class="rounded mx-auto d-block" alt="prodeb" width="100px" heigth="100px">
-                             <div class ="container1">
+                             <img src="https://4.bp.blogspot.com/-m1WwbPYUV0U/VdHSD1q6fFI/AAAAAAAACCw/esmMxWGi58g/s1600/prodeb.jpg"  id="logo2" class="rounded-pill mx-auto d-block my-2" alt="prodeb" width="100px" heigth="100px">
+                             <div >
                             <section id="sect">
-                            <a href="index.php" class="pagination justify-content-center mx-3 h3"><i class="fas fa-home ">  INÍCIO</i></a>
+                            <h3><a href="index.php" class="fas fa-home  mx-3 d-flex justify-content-center"> INÍCIO</a></h3>
                             <!--<i class="fas fa-undo-alt ">INICIO</i>-->
                            <table class="table table-sm table-striped" id="tabela">
                            <thead class="thead-dark">
@@ -73,17 +73,34 @@
                             <nav aria-label="...">
                             <ul class="pagination justify-content-center">
                             <li class="page-item ">
-                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
+                            <?php 
+                                $pagina_anterior = $pagina-1;
+                                if($pagina_anterior ==0){ 
+                                    $pagina_anterior=1;  
+                                    }?>
+                                <a class="page-link" href="relatorio.php?pagina=<?php echo $pagina_anterior; ?>" tabindex="-1" aria-disabled="true">Anterior</a>
+
                             </li>
                             <?php
                             //apresentar a paginaçao
-                                for($i=1;$i < $numPaginas + 1;$i++){?>
-                                    <li class="page-item"><a class="page-link" href="relatorio.php?pagina=<?php echo $i; ?>"><?php echo $i; ?></a></li>
-                                <?php } ?>
+                                for($i=1;$i < $numPaginas + 1;$i++){
+                                    $pageitem= "page-item ";
+                               //estrutura condicional se pagina for atual colocar marcador na
+                               if($i==$pagina){
+                                $pageitem= "page-item active";}
+                            ?>
+                            <li class="<?php echo $pageitem; ?>"><a class="page-link" href="relatorio.php?pagina=<?php echo $i; ?>"><?php echo $i; ?></a>                                </li>
+
+                        <?php } ?> 
                          
                             
                             <li class="page-item">
-                            <a class="page-link" href="#">Proximo</a>
+                            <?php 
+                            $pagina_proximo = $pagina+1;
+                                if($pagina_proximo>$numPaginas){ 
+                                    $pagina_proximo=$numPaginas;
+                                 } ?>
+                                <a class="page-link" href="relatorio.php?pagina=<?php echo $pagina_proximo; ?>" tabindex="-1" aria-disabled="true">proximo</a>
                             </li>
                             </ul>
                             </nav>
@@ -93,6 +110,6 @@
     <footer>
         <h2>&copy; PRODEB</h2>
     </footer>
-    <script src="script.js"></script>
+  
 </body>
 </html>

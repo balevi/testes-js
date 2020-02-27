@@ -1,49 +1,33 @@
-var btn= document.querySelectorAll(".tecla")
-var display= document.querySelectorAll(".display")
-var btn1 = document.getElementById('btn1')
-var btn2 = document.getElementById('btn2')
-var btn3 = document.getElementById('btn3')
-var btn4 = document.getElementById('btn4')
+var btn= document.querySelectorAll(".teclas")
+var display= document.querySelectorAll(".tecladisplay")
 var env = document.getElementById('env')
-var hor = document.getElementById('hor')
 var tipo = document.getElementById('tipo')
-var hors = document.getElementById('horario')
-var datatual = document.getElementById('data')
 var submit = document.getElementById('submit')
-var volt = document.getElementById('volt')
-var voltar= document.querySelectorAll(".voltar")
+var btnenter = document.getElementById('Entrada')
+var btnexit = document.getElementById('Saida')
+var voltar= document.querySelectorAll(".voltar")  
+var horario = document.getElementById('horario')
 
-    
+function time(){
 
+var data = new Date()
+var horas = data.getHours()
+var minutos = data.getMinutes()
 
-function horario(){
-    
-    var data = new Date()
-    var horas = data.getHours()
-    var minutos = data.getMinutes()
-    var dia = data.getDate();
-    var mes = data.getMonth()+1;
-    var ano = data.getFullYear();
-
-    if(mes<10){
-        mes= '0'+mes
-    }
-    datatual.value=`${dia}/${mes}/${ano}`
-    
-    
     if(minutos<10){
         minutos= '0'+minutos
     }
     if(horas<10){
         horas= '0'+horas
     }
-    hors.innerHTML= `<strong> ${horas} : ${minutos}</strong>`
-    
+    horario.innerHTML= `<strong> ${horas} : ${minutos}</strong>`
+
     }
+
     
-    function muda(event)
+    function change(event)
     {
-        if(btn1.innerHTML!="" && (btn2.innerHTML=="" || btn3.innerHTML=="" || btn4.innerHTML=="")){
+        if(display[0].innerHTML!="" && (display[1].innerHTML=="" || display[2].innerHTML=="" || display[3].innerHTML=="")){
         for(let i=0;i<4;i++)
        // for(let i=3;i>-1;i--)
         {   
@@ -57,52 +41,41 @@ function horario(){
           
     }
 
-                    btn1.innerHTML= btn2.innerHTML
-                    btn2.innerHTML= btn3.innerHTML
-                    btn3.innerHTML= btn4.innerHTML
-                    btn4.innerHTML=event.target.innerHTML 
+                    display[0].innerHTML= display[1].innerHTML
+                    display[1].innerHTML= display[2].innerHTML
+                    display[2].innerHTML= display[3].innerHTML
+                    display[3].innerHTML=event.target.innerHTML 
     }
 
 
 
    for(let i=0;i<btn.length;i++)
    {
-       btn[i].addEventListener('click',muda,false)
+       btn[i].addEventListener('click',change,false)
    }
-   
-    function saida(){
-        if(btn2.innerHTML==""){
-            alert("Preencha no mínimo 3 Numeros!")
-            submit.id=null
-        }else{
-                env.value=btn1.innerHTML+btn2.innerHTML+btn3.innerHTML+btn4.innerHTML
-                hor.value=hors.innerText
-                tipo.value="Saida" 
-                let r =confirm(`Saida do Numero: ${btn1.innerHTML+btn2.innerHTML+btn3.innerHTML+btn4.innerHTML}`)
-                submit.id=null
-                if (r==true)
-                {
-                    submit.id="submit" 
-                }
-            } 
-    }
-    function entrada(){
-    if(btn2.innerHTML==""){
-        alert("Preencha no mínimo 3 Numeros!")
+
+   function control(event){
+
+    if(display[1].innerHTML=="" || display[2].innerHTML==""){
+        alert("Preencha todos Numeros!")
         submit.id=null
     }else{
-            env.value=btn1.innerHTML+btn2.innerHTML+btn3.innerHTML+btn4.innerHTML
-            hor.value=hors.innerText
-            
-            tipo.value="Entrada" 
-            let r =confirm(`Entrada do Numero: ${btn1.innerHTML+btn2.innerHTML+btn3.innerHTML+btn4.innerHTML}`)          
+            env.value= btn1.innerText+btn2.innerText+btn3.innerText+btn4.innerText
+            tipo.value= event.target.id                 
+            let r =confirm(`${event.target.id} do Numero: ${env.value}`)
             submit.id=null
             if (r==true)
             {
                 submit.id="submit" 
             }
-        }   
-    }
+        } 
+}
+
+    btnenter.addEventListener('click',control,false)
+    btnexit.addEventListener('click',control,false)
+
+  
+
     function delet(){
         for(let i=3;i>-1;i--)
         {   
