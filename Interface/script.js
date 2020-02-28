@@ -8,44 +8,45 @@ var btnexit = document.getElementById('Saida')
 var voltar= document.querySelectorAll(".voltar")  
 var horario = document.getElementById('horario')
 
-function time(){
+function time()
+{
+    var data = new Date()
+    var horas = data.getHours()
+    var minutos = data.getMinutes()
 
-var data = new Date()
-var horas = data.getHours()
-var minutos = data.getMinutes()
-
-    if(minutos<10){
-        minutos= '0'+minutos
+    if(minutos<10)
+    {
+      minutos= '0'+minutos //minutos menores que 10 são exibitos sem o zero na frente
     }
-    if(horas<10){
-        horas= '0'+horas
+    
+    if(horas<10)
+    {
+      horas= '0'+horas //horas menores que 10 são exibitos sem o zero na frente
     }
-    horario.innerHTML= `<strong> ${horas} : ${minutos}</strong>`
-
-    }
+        horario.innerHTML= `<strong> ${horas} : ${minutos}</strong>`
+}
 
     
-    function change(event)
+function change(event)
+{
+    if(display[0].innerHTML!="" && (display[1].innerHTML=="" || display[2].innerHTML=="" || display[3].innerHTML==""))
     {
-        if(display[0].innerHTML!="" && (display[1].innerHTML=="" || display[2].innerHTML=="" || display[3].innerHTML=="")){
         for(let i=0;i<4;i++)
-       // for(let i=3;i>-1;i--)
         {   
-   
-            if(display[i].innerHTML==""){
-                    display[i].innerHTML= event.target.innerHTML
-  
-                return            
+            if(display[i].innerHTML=="")
+            {
+            display[i].innerHTML= event.target.innerHTML
+            return            
             }       
         }   
           
     }
 
-                    display[0].innerHTML= display[1].innerHTML
-                    display[1].innerHTML= display[2].innerHTML
-                    display[2].innerHTML= display[3].innerHTML
-                    display[3].innerHTML=event.target.innerHTML 
-    }
+    display[0].innerHTML= display[1].innerHTML
+    display[1].innerHTML= display[2].innerHTML
+    display[2].innerHTML= display[3].innerHTML
+    display[3].innerHTML=event.target.innerHTML 
+}
 
 
 
@@ -54,9 +55,10 @@ var minutos = data.getMinutes()
        btn[i].addEventListener('click',change,false)
    }
 
-   function control(event){
-
-    if(display[1].innerHTML=="" || display[2].innerHTML==""){
+function control(event)
+{
+    if(display[1].innerHTML=="" || display[2].innerHTML=="")
+    {
         alert("Preencha todos Numeros!")
         submit.id=null
     }else{
@@ -66,22 +68,22 @@ var minutos = data.getMinutes()
             submit.id=null
             if (r==true)
             {
-                submit.id="submit" 
+            submit.id="submit" 
             }
-        } 
+          } 
 }
 
     btnenter.addEventListener('click',control,false)
     btnexit.addEventListener('click',control,false)
 
-  
-
-    function delet(){
-        for(let i=3;i>-1;i--)
-        {   
-            if(display[i].innerHTML!=""){
+function delet()
+{
+    for(let i=3;i>-1;i--)
+    {   
+        if(display[i].innerHTML!="")
+        {
             display[i].innerHTML=""
             return
-            }
         }
     }
+}
