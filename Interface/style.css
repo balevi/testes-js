@@ -1,6 +1,6 @@
-    body{
-            background-color: rgb(25, 114, 216);
-        }
+body{
+        background-color: rgb(25, 114, 216);
+    }
 
     /*section{
                 background-color: rgb(236, 244, 245);
@@ -11,44 +11,45 @@
                 margin:auto;
             }
     */
-    fieldset{
-                background-color: rgb(236, 244, 245);
-                border: 1px black solid;
-                height: 510px;
-                width: 440px;     
-            }
+fieldset{
+        background-color: rgb(236, 244, 245);
+        border: 1px black solid;
+        height: 510px;
+        width: 440px;     
+        }
 
-    .tecladisplay{       
-                    width: 90px;
-                    height: 70px;
-                    font: normal 35pt italic;
-                    background-color: rgb(224, 222, 218);
-                 }
+.tecladisplay{       
+                width: 90px;
+                height: 70px;
+                font: normal 35pt italic;
+                 background-color: rgb(224, 222, 218);
+             }
         
-    .teclas{
-                font: normal 30pt italic;
-                width: 80px;
-            }
+.teclas{
+        font: normal 30pt italic;
+         width: 80px;
+        }
 
-    #link1{
-            font-size: 50px;
-            text-decoration: none;
-            color:#000000;     
-          }
+#link1{
+        font-size: 50px;
+        text-decoration: none;
+        color:#000000;     
+        }
   
   
-    footer{
-            color: gainsboro;
-            text-align: center;
-          }
+footer{
+        color: gainsboro;
+        text-align: center;
+      }
 
 
-       #sect{
-                background-color: rgb(236, 244, 245);
-            }
+#sect{
+        background-color: rgb(236, 244, 245);
+     }
 
 
-    @media screen and (min-height: 730px){
+@media screen and (min-height: 730px)
+{
        
         #main{
                 margin-top: 40px;
@@ -58,7 +59,7 @@
                 width: 200px;
               }
         #logo2{
-                 width: 200px;
+                width: 200px;
               }
         
-                                            }
+}

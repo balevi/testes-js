@@ -30,7 +30,7 @@
         $total = mysqli_num_rows($dados);//seleciona os itens por página 
         $con = $mysqli->query($consulta) or die($mysqli->error);
     ?>
-    <img src="https://4.bp.blogspot.com/-m1WwbPYUV0U/VdHSD1q6fFI/AAAAAAAACCw/esmMxWGi58g/s1600/prodeb.jpg"  id="logo2" class="rounded-pill mx-auto d-block my-2" alt="prodeb" width="100px" heigth="100px">
+    <img src="https://4.bp.blogspot.com/-m1WwbPYUV0U/VdHSD1q6fFI/AAAAAAAACCw/esmMxWGi58g/s1600/prodeb.jpg"  id="logo2" class="rounded mx-auto d-block my-2" alt="prodeb" width="100px" heigth="100px">
                             
     <section id="sect">
         <h3><a href="index.php" class="fas fa-home  mx-3 d-flex justify-content-center"> INÍCIO</a></h3>

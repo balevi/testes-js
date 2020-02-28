@@ -57,9 +57,9 @@ function change(event)
 
 function control(event)
 {
-    if(display[1].innerHTML=="" || display[2].innerHTML=="")
+    if(display[0].innerHTML=="" || display[1].innerHTML==""|| display[2].innerHTML=="")
     {
-        alert("Preencha todos Numeros!")
+        alert("Preencha No Minímo 3 Numeros!")
         submit.id=null
     }else{
             env.value= btn1.innerText+btn2.innerText+btn3.innerText+btn4.innerText
