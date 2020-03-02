@@ -19,13 +19,22 @@
         $bd = "controle";                    
         $mysqli = new mysqli($host, $usuario, $senha, $bd);//conexao com o banco de dados
         $pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1;//verifica a página atual caso seja informada na URL, senão atribui como 1ª página 
-        $consulta = "select * from interface";
+        //$consulta = "select * from interface";
+       
+
+        $consulta = (isset($_REQUEST["valor"]) && $_REQUEST["valor"]!= "") ?"select * from interface WHERE codigo = ".$_REQUEST["valor"]." ":"select * from interface  ";
         $dados = $mysqli->query($consulta);//seleciona todos os itens da tabela
         $total = mysqli_num_rows($dados);//conta o total de itens
         $registros = 13;//seta a quantidade de itens por página, neste caso, 5 itens
         $numPaginas = ceil($total/$registros);//calcula o número de páginas arredondando o resultado para cima 
         $inicio = ($registros*$pagina)-$registros;//variavel para calcular o início da visualização com base na página atual 
-        $consulta = "select * from interface ORDER BY id desc limit $inicio,$registros"; 
+        // $consulta = "select * from interface ORDER BY id desc limit $inicio,$registros";
+        //$value= (isset($_REQUEST["valor"])) ? "WHERE codigo = ".$_REQUEST["valor"] : '' ;
+        if(isset($_REQUEST["valor"]) && $_REQUEST["valor"]!= ""){
+            $consulta = "select * from interface WHERE codigo = ".$_REQUEST["valor"]." ORDER BY id desc limit $inicio,$registros";
+        }else{
+             $consulta ="select * from interface ORDER BY id desc limit $inicio,$registros";
+            }
         $dados = $mysqli->query($consulta); 
         $total = mysqli_num_rows($dados);//seleciona os itens por página 
         $con = $mysqli->query($consulta) or die($mysqli->error);
@@ -34,6 +43,12 @@
                             
     <section id="sect">
         <h3><a href="index.php" class="fas fa-home  mx-3 d-flex justify-content-center"> INÍCIO</a></h3>
+            <nav class="navbar navbar-light bg-light">
+                <form action="relatorio.php" class="form-inline">
+                    <input class="form-control mr-sm-2" name="valor" type="search" placeholder="Buscar Código" aria-label="Search" >
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                </form>
+            </nav>
             <table class="table table-sm table-striped" id="tabela">
                 <thead class="thead-dark">
                     <tr>
@@ -67,7 +82,7 @@
                             }
                         ?>
                             
-                        <a class="page-link" href="relatorio.php?pagina=<?php echo $pagina_anterior; ?>" tabindex="-1" aria-disabled="true">Anterior</a>
+                        <a class="page-link" href="relatorio.php?pagina=<?php echo $pagina_anterior;?>" tabindex="-1" aria-disabled="true">Anterior</a>
 
                     </li>
                         <?php
@@ -93,7 +108,7 @@
                                     $pagina_proximo=$numPaginas;
                                 } 
                             ?>
-                        <a class="page-link" href="relatorio.php?pagina=<?php echo $pagina_proximo; ?>" tabindex="-1" aria-disabled="true">proximo</a>
+                        <a class="page-link" href="relatorio.php?pagina=<?php echo $pagina_proximo ; ?>" tabindex="-1" aria-disabled="true">proximo</a>
                     </li>
                 </ul>
             </nav>
