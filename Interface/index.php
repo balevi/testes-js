@@ -29,7 +29,7 @@
         <div class="d-flex justify-content-center" id="main">
             <fieldset>
 
-                <a href="relatorio.php" class="fas fa-paste float-left ml-2" id="link1"></a>
+                <a href="relatorio.php?" class="fas fa-paste float-left ml-2" id="link1"></a>
                 <div id="horario"name="horas" class="float-right mr-4">
                     <strong> Horário </strong>
                 </div>
@@ -82,7 +82,7 @@
         </form>
         
         <footer>
-            <h2>&copy; PRODEB</h2>
+            <h2>Copyright&copy;.2020, PRODEB</h2>
         </footer>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
