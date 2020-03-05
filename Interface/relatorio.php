@@ -19,12 +19,13 @@
         $bd = "controle";                    
         $mysqli = new mysqli($host, $usuario, $senha, $bd);//conexao com o banco de dados
         $pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1;//verifica a página atual caso seja informada na URL, senão atribui como 1ª página 
-        //$consulta = "select * from interface";
+    
 
-        //$name= filter_input(INPUT_POST,)
-        //ECHO $_REQUEST["date"];
-           // echo $dat;
-         if (isset($_REQUEST["valor"]) && $_REQUEST["valor"]!= "") {
+        if (isset($_REQUEST["date"]) && $_REQUEST["date"]!= "" && isset($_REQUEST["valor"]) && $_REQUEST["valor"]!= ""){
+            //$dat= $_GET["date"];
+            $consulta = "select * from interface WHERE codigo = 123 AND data ='05/03/2020'";
+        } 
+         else if (isset($_REQUEST["valor"]) && $_REQUEST["valor"]!= "") {
             $consulta = "select * from interface WHERE codigo = ".$_REQUEST["valor"]." ";
         } else if (isset($_REQUEST["date"]) && $_REQUEST["date"]!= "") {
             $dat= $_GET["date"];
@@ -33,18 +34,18 @@
         else{
             $consulta = "select * from interface  ";
         }
-        
-
-        
         $dados = $mysqli->query($consulta);//seleciona todos os itens da tabela
         $total = mysqli_num_rows($dados);//conta o total de itens
         $registros = 13;//seta a quantidade de itens por página, neste caso, 5 itens
         $numPaginas = ceil($total/$registros);//calcula o número de páginas arredondando o resultado para cima 
         $inicio = ($registros*$pagina)-$registros;//variavel para calcular o início da visualização com base na página atual 
-        // $consulta = "select * from interface ORDER BY id desc limit $inicio,$registros";
-        //$value= (isset($_REQUEST["valor"])) ? "WHERE codigo = ".$_REQUEST["valor"] : '' ;
         
-        if(isset($_REQUEST["valor"]) && $_REQUEST["valor"]!= ""){
+        if (isset($_REQUEST["date"]) && $_REQUEST["date"]!= "" && isset($_REQUEST["valor"]) && $_REQUEST["valor"]!= ""){
+            $dat= $_GET["date"];
+            //$consulta = "select * from interface WHERE data = '$dat'" ;
+            $consulta = "select * from interface WHERE codigo = ".$_REQUEST["valor"]." AND data ='$dat'";
+        } 
+        else if(isset($_REQUEST["valor"]) && $_REQUEST["valor"]!= ""){
         $consulta = "select * from interface WHERE codigo = ".$_REQUEST["valor"]." ORDER BY id desc limit $inicio,$registros";
         }
         else if (isset($_REQUEST["date"]) && $_REQUEST["date"]!= "") {
@@ -67,6 +68,7 @@
                     <select id="select" class="custom-select" onclick="option()">
                         <option value="Codigo"selected > Codigo</option> 
                         <option value="Data">Data</option>
+                        <option value="Da">Codigo/Data</option>
                     </select>
                     <input class="form-control mr-sm-2" name="valor" type="search" placeholder="Digite o Código..." aria-label="Search" >
                     <input class="form-control mr-sm-2"  name="date" placeholder="Digite a Data..." onkeypress="mascaraData( this, event )">
@@ -81,6 +83,7 @@
                         <th><h5>Tipo</h5></th>
                         <th><h5>Horário</h5></th>
                         <th><h5>Data</h5></th>
+                        <th></th>
                     </tr>
                 </thead>
                         
@@ -92,6 +95,7 @@
                             <td><?php echo $dado["tipo"]; ?></td>
                             <td><?php echo $dado["horas"]; ?></td>
                             <td><?php echo $dado["data"]; ?></td>
+                            <td><a href="#" class ="del" id="<?php echo $dado["id"]; ?>"><i class="fas fa-times-circle"style="font-size: 2em;color: red"></i></a></td>
                         </tr>       
                 <?php }?>
             </table>         
@@ -163,6 +167,7 @@
     
     var valor = document.getElementsByName("valor");
     var data = document.getElementsByName("date");
+    var del= document.querySelectorAll(".del");
     data[0].style.display='none';
 
  
@@ -171,19 +176,36 @@
     
     var select = document.getElementById("select");
     var opt = select.options[select.selectedIndex];
-
-
+    data[0].style.display='none';
+    let screenWidth = screen.width;
     if (opt.value == "Data"){
   
         valor[0].style.display='none';
         valor[0].value="";
         data[0].style.display= '';
+        if(screenWidth<385){
+                data[0].style.width = '140px';
+            }
     
-    
+        }else if(opt.value == "Codigo"){
+        data[0].style.display='none';
+        data[0].value="";
+        valor[0].style.display='';
+        if(screenWidth<385){
+                valor[0].style.width = '155px';
+            }
+        if(screenWidth<321){
+                valor[0].style.width = '120px';
+            }
+
         }else{
-            data[0].style.display='none';
-            data[0].value="";
+            data[0].style.display= '';
             valor[0].style.display='';
+
+            if(screenWidth<385){
+                valor[0].style.width = '80px';
+                data[0].style.width = '106px';
+            }
         }
     }
 
@@ -207,6 +229,29 @@
 			campo.value = data;
 	}
 }
+
+
+
+function confirmet(event)
+{
+  let resp= confirm(`Deseja Realmente Excluir?`)
+    if (resp==true)
+        {
+            for(var i=0;i<del.length;i++)
+            {
+                del[i].href=`excluir.php?id=${del[i].id}&pagina=<?php if(isset($_GET['pagina'])){echo$_GET['pagina'];}else{echo 1;}?>`
+            }
+            
+        }
+}
+    
+    for(var i=0;i<del.length;i++)
+    {
+        del[i].addEventListener('click',confirmet,false);
+    }
+
+
+
     </script>
    </body>
 </html>

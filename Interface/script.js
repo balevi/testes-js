@@ -8,6 +8,7 @@ var btnexit = document.getElementById('Saida')
 var voltar= document.querySelectorAll(".voltar")  
 var horario = document.getElementById('horario')
 
+
 function time()
 {
     var data = new Date()
@@ -64,12 +65,12 @@ function control(event)
     }else{
             env.value= btn1.innerText+btn2.innerText+btn3.innerText+btn4.innerText
             tipo.value= event.target.id                 
-            let r =confirm(`${event.target.id} do Numero: ${env.value}`)
-            submit.id=null
-            if (r==true)
-            {
+            //let r =confirm(`${event.target.id} do Numero: ${env.value}`)
+            //submit.id=null
+            //if (r==true)
+            //{
             submit.id="submit" 
-            }
+           // }
           } 
 }
 
@@ -87,3 +88,4 @@ function delet()
         }
     }
 }
+

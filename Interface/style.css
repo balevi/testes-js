@@ -50,7 +50,7 @@ footer{
 
 @media screen and (min-height: 730px)
 {
-       
+
         #main{
                 margin-top: 40px;
              }
@@ -60,6 +60,39 @@ footer{
               }
         #logo2{
                 width: 200px;
-              }
+              }   
+}
+
+@media screen and (max-width: 385px)
+{
         
+        input[name="valor"] {
+                width: 155px;
+                
+              }
+        input[name="date"] {
+                width: 140px;
+                
+              }
+        #select{
+                width: 100px; 
+        }
+            
+              
+}
+@media screen and (max-width: 321px)
+{
+        
+        input[name="valor"] {
+                width: 152px;
+                
+              }
+        input[name="date"] {
+                width: 140px;
+                
+              }
+        #select{
+                width: 93px; 
+        }
+              
 }
