@@ -20,10 +20,11 @@
         $mysqli = new mysqli($host, $usuario, $senha, $bd);//conexao com o banco de dados
         $pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1;//verifica a página atual caso seja informada na URL, senão atribui como 1ª página 
     
-
+        // consulta para definir o numero de pagina através numeros de registros
         if (isset($_REQUEST["date"]) && $_REQUEST["date"]!= "" && isset($_REQUEST["valor"]) && $_REQUEST["valor"]!= ""){
-            //$dat= $_GET["date"];
-            $consulta = "select * from interface WHERE codigo = 123 AND data ='05/03/2020'";
+            $dat= $_GET["date"];
+
+            $consulta = "select * from interface WHERE codigo = ".$_REQUEST["valor"]." AND data ='$dat'";
         } 
          else if (isset($_REQUEST["valor"]) && $_REQUEST["valor"]!= "") {
             $consulta = "select * from interface WHERE codigo = ".$_REQUEST["valor"]." ";
@@ -39,10 +40,11 @@
         $registros = 13;//seta a quantidade de itens por página, neste caso, 5 itens
         $numPaginas = ceil($total/$registros);//calcula o número de páginas arredondando o resultado para cima 
         $inicio = ($registros*$pagina)-$registros;//variavel para calcular o início da visualização com base na página atual 
-        
+       
+        // consulta para definir o tipo de buscar
         if (isset($_REQUEST["date"]) && $_REQUEST["date"]!= "" && isset($_REQUEST["valor"]) && $_REQUEST["valor"]!= ""){
             $dat= $_GET["date"];
-            //$consulta = "select * from interface WHERE data = '$dat'" ;
+
             $consulta = "select * from interface WHERE codigo = ".$_REQUEST["valor"]." AND data ='$dat'";
         } 
         else if(isset($_REQUEST["valor"]) && $_REQUEST["valor"]!= ""){
@@ -53,6 +55,7 @@
         }else{
              $consulta ="select * from interface ORDER BY id desc limit $inicio,$registros";
             }
+
         $dados = $mysqli->query($consulta); 
         $total = mysqli_num_rows($dados);//seleciona os itens por página 
         $con = $mysqli->query($consulta) or die($mysqli->error);
@@ -76,7 +79,7 @@
                 </form>
 
             </nav>
-            <table class="table table-sm table-striped" id="tabela">
+            <table class="table table-hover table-sm table-striped" id="tabela">
                 <thead class="thead-dark">
                     <tr>
                         <th><h5>Código</h5></th>
@@ -113,7 +116,8 @@
                             
                         <a class="page-link" href="relatorio.php?pagina=<?php echo $pagina_anterior ; if(isset($_REQUEST["valor"])) { ?>&valor=<?php echo $_REQUEST["valor"]; }if(isset($_REQUEST["date"])){ ?>&date=<?php
                                 echo $_REQUEST["date"];
-                              }?>" tabindex="-1" aria-disabled="true">Anterior</a>
+                              }?>"  aria-label="Previous"><span aria-hidden="true">&laquo;</span>
+                              <span class="sr-only">Previous</span></a>
 
                     </li>
                         <?php
@@ -150,7 +154,8 @@
                             ?>
                         <a class="page-link" href="relatorio.php?pagina=<?php echo $pagina_proximo;  if(isset($_REQUEST["valor"])) { ?>&valor=<?php echo $_REQUEST["valor"];if(isset($_REQUEST["date"])){ ?>&date=<?php
                                 echo $_REQUEST["date"];
-                              } } ?>" tabindex="-1" aria-disabled="true">proximo</a>
+                              } } ?>" aria-label="Next"><span aria-hidden="true">&raquo;</span>
+                              <span class="sr-only">Next</span></a>
                     </li>
                 </ul>
             </nav>
@@ -185,6 +190,7 @@
         data[0].style.display= '';
         if(screenWidth<385){
                 data[0].style.width = '140px';
+                data[0].placeholder = 'Digite a Data...';
             }
     
         }else if(opt.value == "Codigo"){
@@ -193,9 +199,11 @@
         valor[0].style.display='';
         if(screenWidth<385){
                 valor[0].style.width = '155px';
+                valor[0].placeholder = 'Digite o Código...';
             }
         if(screenWidth<321){
                 valor[0].style.width = '120px';
+                valor[0].placeholder = 'Digite o Código...';
             }
 
         }else{
@@ -204,7 +212,9 @@
 
             if(screenWidth<385){
                 valor[0].style.width = '80px';
+                valor[0].placeholder = 'Cód...';
                 data[0].style.width = '106px';
+                data[0].placeholder = 'Data';
             }
         }
     }
