@@ -16,9 +16,18 @@
         $host = "localhost";
         $usuario = "root";
         $senha = "";
-        $bd = "controle";                    
+        $bd = "controle";   
+                        
         $mysqli = new mysqli($host, $usuario, $senha, $bd);//conexao com o banco de dados
-        $pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1;//verifica a página atual caso seja informada na URL, senão atribui como 1ª página 
+        if (mysqli_connect_errno()) { // verificar se conexao teve sucesso, caso contrario voltara para index
+            $msg =  "Erro Conexão Banco de dados !";
+           ?>
+           <script> location.href='index.php?res=<?php echo $msg; ?>'; </script>
+           <?php
+           exit();
+        }
+        
+        $pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1;//verifica a página atual, caso contrario atribui como 1ª página para a paginação
     
         // consulta para definir o numero de pagina através numeros de registros
         if (isset($_REQUEST["date"]) && $_REQUEST["date"]!= "" && isset($_REQUEST["valor"]) && $_REQUEST["valor"]!= ""){
@@ -37,11 +46,12 @@
         }
         $dados = $mysqli->query($consulta);//seleciona todos os itens da tabela
         $total = mysqli_num_rows($dados);//conta o total de itens
-        $registros = 13;//seta a quantidade de itens por página, neste caso, 5 itens
+        $registros = 13;//seta a quantidade de itens por página, neste caso, 13 itens
         $numPaginas = ceil($total/$registros);//calcula o número de páginas arredondando o resultado para cima 
         $inicio = ($registros*$pagina)-$registros;//variavel para calcular o início da visualização com base na página atual 
        
-        // consulta para definir o tipo de buscar
+        
+        // consulta para ser exibida a partir do tipo de buscar solicitado pelo usúario seja por codigo ou data ou ambos
         if (isset($_REQUEST["date"]) && $_REQUEST["date"]!= "" && isset($_REQUEST["valor"]) && $_REQUEST["valor"]!= ""){
             $dat= $_GET["date"];
 
@@ -74,7 +84,7 @@
                         <option value="Da">Codigo/Data</option>
                     </select>
                     <input class="form-control mr-sm-2" name="valor" type="search" placeholder="Digite o Código..." aria-label="Search" >
-                    <input class="form-control mr-sm-2"  name="date" placeholder="Digite a Data..." onkeypress="mascaraData( this, event )">
+                    <input class="form-control mr-sm-2"  name="date"  placeholder="Digite a Data...">
                     <button class="btn btn-outline-primary my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
                 </form>
 
@@ -116,8 +126,7 @@
                             
                         <a class="page-link" href="relatorio.php?pagina=<?php echo $pagina_anterior ; if(isset($_REQUEST["valor"])) { ?>&valor=<?php echo $_REQUEST["valor"]; }if(isset($_REQUEST["date"])){ ?>&date=<?php
                                 echo $_REQUEST["date"];
-                              }?>"  aria-label="Previous"><span aria-hidden="true">&laquo;</span>
-                              <span class="sr-only">Previous</span></a>
+                              }?>"><i class="fas fa-arrow-circle-left"></i></a>
 
                     </li>
                         <?php
@@ -154,8 +163,7 @@
                             ?>
                         <a class="page-link" href="relatorio.php?pagina=<?php echo $pagina_proximo;  if(isset($_REQUEST["valor"])) { ?>&valor=<?php echo $_REQUEST["valor"];if(isset($_REQUEST["date"])){ ?>&date=<?php
                                 echo $_REQUEST["date"];
-                              } } ?>" aria-label="Next"><span aria-hidden="true">&raquo;</span>
-                              <span class="sr-only">Next</span></a>
+                              } } ?>"><i class="fas fa-arrow-circle-right"></i></a>
                     </li>
                 </ul>
             </nav>
@@ -164,104 +172,7 @@
                                 
     <footer>
         <h2>Copyright&copy;.2020, PRODEB</h2>
-    </footer>
-    
-    
-
-    <script>
-    
-    var valor = document.getElementsByName("valor");
-    var data = document.getElementsByName("date");
-    var del= document.querySelectorAll(".del");
-    data[0].style.display='none';
-
- 
-    
-    function option(){
-    
-    var select = document.getElementById("select");
-    var opt = select.options[select.selectedIndex];
-    data[0].style.display='none';
-    let screenWidth = screen.width;
-    if (opt.value == "Data"){
-  
-        valor[0].style.display='none';
-        valor[0].value="";
-        data[0].style.display= '';
-        if(screenWidth<385){
-                data[0].style.width = '140px';
-                data[0].placeholder = 'Digite a Data...';
-            }
-    
-        }else if(opt.value == "Codigo"){
-        data[0].style.display='none';
-        data[0].value="";
-        valor[0].style.display='';
-        if(screenWidth<385){
-                valor[0].style.width = '155px';
-                valor[0].placeholder = 'Digite o Código...';
-            }
-        if(screenWidth<321){
-                valor[0].style.width = '120px';
-                valor[0].placeholder = 'Digite o Código...';
-            }
-
-        }else{
-            data[0].style.display= '';
-            valor[0].style.display='';
-
-            if(screenWidth<385){
-                valor[0].style.width = '80px';
-                valor[0].placeholder = 'Cód...';
-                data[0].style.width = '106px';
-                data[0].placeholder = 'Data';
-            }
-        }
-    }
-
-
-    function mascaraData( campo, e )
-{
-	var kC = (document.all) ? event.keyCode : e.keyCode;
-	var data = campo.value;
-	
-	if( kC!=8 && kC!=46 )
-	{
-		if( data.length==2 )
-		{
-			campo.value = data += '/';
-		}
-		else if( data.length==5 )
-		{
-			campo.value = data += '/';
-		}
-		else
-			campo.value = data;
-	}
-}
-
-
-
-function confirmet(event)
-{
-  let resp= confirm(`Deseja Realmente Excluir?`)
-    if (resp==true)
-        {
-            for(var i=0;i<del.length;i++)
-            {
-                del[i].href=`excluir.php?id=${del[i].id}&pagina=<?php if(isset($_GET['pagina'])){echo$_GET['pagina'];}else{echo 1;}?>`
-            }
-            
-        }
-}
-    
-    for(var i=0;i<del.length;i++)
-    {
-        del[i].addEventListener('click',confirmet,false);
-    }
-
-
-
-    </script>
+    </footer> 
+    <script src="relatorio.js"></script>
    </body>
 </html>

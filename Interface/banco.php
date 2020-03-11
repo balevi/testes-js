@@ -17,7 +17,7 @@
                      values ('$id','$cod', '$tipo','$horas','$data') ");
         if ($res>0)
         {
-                    $msg = "$tipo, Nº: ".$cod."";
+                    $msg = "$tipo do Veículo, Nº: ".$cod."";
         } else{
                 $msg =  "Erro ao salvar!";
              }
