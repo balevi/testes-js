@@ -79,21 +79,4 @@ data[0].addEventListener('keydown',validy_Date,false)
 
 
 
-function confirmet(event) //confirmação para excluir registro e ativa href para o mesmo e salvamento da pagina atual
-{
-    let resp= confirm(`Deseja Realmente Excluir?`)
-    if (resp==true)
-        {
-            for(var i=0;i<del.length;i++)
-            {
-                del[i].href=`excluir.php?id=${del[i].id}&pagina=<?php if(isset($_GET['pagina'])){echo$_GET['pagina'];}else{echo 1;}?>`
-            }
-        
-        }
-}
-
-for(var i=0;i<del.length;i++)
-{
-    del[i].addEventListener('click',confirmet,false);
-}
 

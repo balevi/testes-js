@@ -74,7 +74,7 @@
        
         </div>
 
-        <form action="banco.php" method="get">
+        <form action="create.php" method="get">
             <input type = "text" name="id" hidden>
             <input type = "text" name="cod" id="env" value="" hidden>
             <input type = "text" name="tipo" id="tipo" value ="" hidden>
