@@ -7,7 +7,7 @@
     <title>INTERFACE</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="CSS/style.css">
     
 </head>
 <body>
@@ -23,14 +23,14 @@
 
                 <form action="relatorio.php" class="form-inline" method="GET">
 
-                    <select id="select" class="custom-select" onclick="option()">
+                    <select id="select" class="custom-select mr-1" >
                         <option value="Codigo"selected > Codigo</option> 
                         <option value="Data">Data</option>
-                        <option value="Da">Codigo/Data</option>
+                        <option id= "opt3">Codigo/Data</option>
                     </select>
-                    <input class="form-control mr-sm-2" name="valor" type="search" placeholder="Digite o Código..." aria-label="Search" >
-                    <input class="form-control mr-sm-2"  name="date"  placeholder="Digite a Data...">
-                    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+                    <input class="form-control mr-1" name="valor" type="search" placeholder="Digite o Código..." aria-label="Search" >
+                    <input class="form-control mr-1 "  name="date"  placeholder="Digite a Data...">
+                    <button class="btn btn-outline-primary " type="submit"><i class="fas fa-search"></i></button>
                 </form>
 
             </nav>
@@ -124,7 +124,7 @@
     <footer>
         <h2>Copyright&copy;.2020, PRODEB</h2>
     </footer> 
-        <script src="relatorio.js"></script>
+        <script src="Java Script/relatorio.js"></script>
         <script>
             
             function confirmed(event) //confirmação para excluir registro e coloca no href link para o delete e salvamento da pagina atual
