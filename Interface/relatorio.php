@@ -24,9 +24,9 @@
                 <form action="relatorio.php" class="form-inline" method="GET">
 
                     <select id="select" class="custom-select mr-1" >
-                        <option value="Codigo"selected > Codigo</option> 
+                        <option value="Codigo"selected > Código</option> 
                         <option value="Data">Data</option>
-                        <option id= "opt3">Codigo/Data</option>
+                        <option id= "opt3">Código/Data</option>
                     </select>
                     <input class="form-control mr-1" name="valor" type="search" placeholder="Digite o Código..." aria-label="Search" >
                     <input class="form-control mr-1 "  name="date"  placeholder="Digite a Data...">
