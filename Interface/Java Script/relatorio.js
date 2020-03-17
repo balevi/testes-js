@@ -1,8 +1,9 @@
-var valor = document.getElementsByName("valor");
-var data = document.getElementsByName("date");
-var select = document.getElementById("select");
-var opt3 = document.getElementById("opt3");
-var del= document.querySelectorAll(".del");
+var valor = document.getElementsByName("valor"); // pegando input codigo
+var data = document.getElementsByName("date"); // pegando input data
+var select = document.getElementById("select"); // pegando o select
+var opt3 = document.getElementById("opt3"); // pegando terceiro option do select para altera tamanho pelo display
+var sect = document.getElementById("sect"); // pegando o section para ser alterado display menor 321
+var del= document.querySelectorAll(".del"); // pegando o botao excluir
 data[0].style.display='none'; //input data fica invisivel inicio ate ser selecionado pelo select atraves função option
 
 
@@ -12,12 +13,12 @@ function option()
 
     var select = document.getElementById("select");
     var opt = select.options[select.selectedIndex];
-    data[0].style.display='none';
-    let screenWidth = screen.width;
+    data[0].style.display='none'; //de inicio input data sera ocultado
+    let screenWidth = screen.width; // pegando largura do aparelho para os elementos diminua a depender tela
     if (opt.value == "Data")
     {
 
-        valor[0].style.display='none';
+        valor[0].style.display='none'; // ao escolher busca por data o input codigo sera ocultado
         valor[0].value="";
         data[0].style.display= '';
         if(screenWidth<385)
@@ -26,21 +27,29 @@ function option()
             data[0].placeholder = 'Digite a Data...';
         }
 
+        if(screenWidth<321) // diminui o tamanho dos input e placeholder para IPHONE5
+        {
+            select.style.width = '200px';
+            data[0].style.width = '200px';
+        }
+
     }
     else if(opt.value == "Codigo")
     {
-        data[0].style.display='none';
+        data[0].style.display='none'; // ao escolher busca por código o input data sera ocultado
         data[0].value="";
         valor[0].style.display='';
-        if(screenWidth<385)
+        if(screenWidth<385)  // diminui o tamanho dos input e placeholder para lumia 950, NEXUS 4,5
         {
             valor[0].style.width = '157px';
             valor[0].placeholder = 'Digite o Código...';
+            select.style.width = '93px';
         }
-        if(screenWidth<321)
+        if(screenWidth<321) // diminui o tamanho dos input e placeholder para IPHONE5
         {
-            valor[0].style.width = '120px';
-            valor[0].placeholder = 'Digite o Código...';
+            select.style.width = '200px';
+            valor[0].style.width = '200px';
+       
         }
 
     }
@@ -57,13 +66,29 @@ function option()
             select.style.width = '88px';
             opt3.innerText = 'Cód/Dat';
         }
+        if(screenWidth<321) // diminui o tamanho dos input e placeholder para IPHONE5
+        {
+            select.style.width = '110px';
+            valor[0].style.width = '70px';
+            data[0].style.width = '70px';
+         
+        }
     }
 }
 
 select.addEventListener('click',option,false)
 
+if(screen.width>410 && screen.height < 733){ // diminuindo os input para NEXUS6
+    valor[0].style.width = '165px';
+    data[0].style.width = '165px';
+}
+if(screen.width<321){ // diminuindo os input para IPHONE5 e deixando o section tamanho ideal para essa tela
+    select.style.width = '200px';
+    valor[0].style.width = '200px';
+    sect.style.width = '110%';
+}
 
-function validy_Date(event) //incrementa '/' na digitação data e limita 10 caractere
+function validy_Date(event) //incrementa '/' na digitação do input data e limita 10 caractere
 {
 
         

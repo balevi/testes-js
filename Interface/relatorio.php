@@ -30,7 +30,7 @@
                     </select>
                     <input class="form-control mr-1" name="valor" type="search" placeholder="Digite o Código..." aria-label="Search" >
                     <input class="form-control mr-1 "  name="date"  placeholder="Digite a Data...">
-                    <button class="btn btn-outline-primary " type="submit"><i class="fas fa-search"></i></button>
+                    <button class="btn btn-outline-primary " type="submit" ><i class="fas fa-search"></i></button>
                 </form>
 
             </nav>
@@ -76,17 +76,20 @@
                     </li>
                         <?php
                             //apresentar a paginaçao
-                            $inicio = $pagina - 5;
-                            $limite = $pagina + 5;
+                            $inicio = $pagina - 4;
+                            $limite = $pagina + 4;
+                            if($inicio < 0){  //  condição para não ter numeraçao paginas negativas
+                                $inicio = 0; 
+                            }
                             for($i=$inicio;$i < $limite;$i++)
                             {
                                  $pageitem= "page-item ";
-                                //estrutura condicional se pagina for atual colocar marcador na pagina
+                                //estrutura condicional se pagina for atual colocar marcador azul na pagina
                                 if($i==$pagina){
                                 $pageitem= "page-item active";
                                                 }
                         ?>
-                        <?php if($i>0 && $i <= $numPaginas){  //condição para não ter numeraçao paginas negativas e não ultrapasse o limite de paginas com registros?> 
+                        <?php if($i <= $numPaginas){  //  condição para não ter numeraçao paginas negativas e não ultrapasse o limite de paginas com registros?> 
                     <li class="<?php echo $pageitem; ?>">
                         <a class="page-link" href="relatorio.php?pagina=<?php echo $i; 
                             if(isset($_REQUEST["valor"])) {?>&valor=<?php 
@@ -95,17 +98,16 @@
                               if(isset($_REQUEST["date"])){ ?>&date=<?php
                                 echo $_REQUEST["date"];
                               }
-                              ?>"><?php echo $i; //colocando numeração da paginação ?></a>
+                              ?>"><?php if($i==0){ $i=1; } echo $i; // condição para não ter numeraçao paginas negativas e colocando numeração da paginação ?></a>
                     </li>
                             <?php } ?>
                      
 
-                      <?php } ?> 
+                      <?php } //termino do for ?> 
                                  
                     <li class="page-item">
                             <?php 
                             $pagina_proximo = $pagina+1;
-                            $test=1;
                                 if($pagina_proximo>$numPaginas)
                                 { 
                                     $pagina_proximo=$numPaginas;
