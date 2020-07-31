@@ -9,15 +9,24 @@ fieldset{
         width: 440px;     
         }
 
+#testa{
+        border: 1px black solid;
+        background-color: rgb(236, 244, 245);
+        height: 210px;
+        width: 440px;    
+}
+
 .tecladisplay{       
                 width: 90px;
                 height: 70px;
                 font: normal 35pt italic;
+                border: 1px black solid;
                  background-color: rgb(224, 222, 218);
              }
         
 .teclas{
-        font: normal 30pt italic;
+        font: normal 35pt italic;
+        border: 1px black solid;
          width: 80px;
         }
 
@@ -59,7 +68,9 @@ footer{
               }   
 }
 
-@media screen and (max-width: 385px)
+
+
+@media screen and (max-width: 415px)
 {
         
         input[name="valor"] {
@@ -80,15 +91,15 @@ footer{
 {
         
         input[name="valor"] {
-                width: 152px;
+                width: 145px;
                 
               }
         input[name="date"] {
-                width: 140px;
+                width: 145px;
                 
               }
         #select{
-                width: 93px; 
+                width: 90px; 
         }
               
 }

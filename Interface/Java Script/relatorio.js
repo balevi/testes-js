@@ -21,6 +21,11 @@ function option()
         valor[0].style.display='none'; // ao escolher busca por data o input codigo sera ocultado
         valor[0].value="";
         data[0].style.display= '';
+        if(screenWidth<415)
+        {
+            data[0].style.width = '150px';
+            data[0].placeholder = 'Digite a Data...';
+        }
         if(screenWidth<385)
         {
             data[0].style.width = '140px';
@@ -29,8 +34,8 @@ function option()
 
         if(screenWidth<321) // diminui o tamanho dos input e placeholder para IPHONE5
         {
-            select.style.width = '200px';
-            data[0].style.width = '200px';
+            select.style.width = '90px';
+            data[0].style.width = '145px';
         }
 
     }
@@ -39,6 +44,12 @@ function option()
         data[0].style.display='none'; // ao escolher busca por código o input data sera ocultado
         data[0].value="";
         valor[0].style.display='';
+        if(screenWidth<415)  // diminui o tamanho dos input e placeholder para Pixel 2 e NEXUS6
+        {
+            valor[0].style.width = '157px';
+            valor[0].placeholder = 'Digite o Código...';
+            select.style.width = '93px';
+        }
         if(screenWidth<385)  // diminui o tamanho dos input e placeholder para lumia 950, NEXUS 4,5
         {
             valor[0].style.width = '157px';
@@ -47,8 +58,8 @@ function option()
         }
         if(screenWidth<321) // diminui o tamanho dos input e placeholder para IPHONE5
         {
-            select.style.width = '200px';
-            valor[0].style.width = '200px';
+            select.style.width = '90px';
+            valor[0].style.width = '145px';
        
         }
 
@@ -57,7 +68,17 @@ function option()
     {
         data[0].style.display= '';
         valor[0].style.display='';
-
+        
+        if(screenWidth<415) // diminui o tamanho dos input e placeholder para Pixel 2 e Nexus6
+        {
+            select.style.width = '110px';
+            valor[0].style.width = '105px';
+            valor[0].placeholder = 'Código...';
+            data[0].style.width = '105px';
+            data[0].placeholder = 'Data...';
+            
+         
+        }
         if(screenWidth<385){
             valor[0].style.width = '80px';
             valor[0].placeholder = 'Cód...';
@@ -78,14 +99,15 @@ function option()
 
 select.addEventListener('click',option,false)
 
-if(screen.width>410 && screen.height < 733){ // diminuindo os input para NEXUS6
-    valor[0].style.width = '165px';
-    data[0].style.width = '165px';
+if(screen.width>410 && screen.height<733){ // diminuindo os input para NEXUS6
+    valor[0].style.width = '155px';
+    data[0].style.width = '150px';
+    select.style.width = '150px';
 }
 if(screen.width<321){ // diminuindo os input para IPHONE5 e deixando o section tamanho ideal para essa tela
-    select.style.width = '200px';
-    valor[0].style.width = '200px';
-    sect.style.width = '110%';
+    select.style.width = '90px';
+    valor[0].style.width = '145px';
+    //sect.style.width = '110%';
 }
 
 function validy_Date(event) //incrementa '/' na digitação do input data e limita 10 caractere

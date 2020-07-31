@@ -12,23 +12,45 @@
 </head>
 <body>
     
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+     <a class="navbar-brand" href="#">PRODEB</a>
+     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+     </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown" >
+       <ul class="navbar-nav">
+         <li class="nav-item">
+          <a class="nav-link" href="index.php">ÍNICIO</a>
+         </li>
+         <li class="nav-item active">
+          <a class="nav-link" href="relatorio.php">RELATORIO</a>
+         </li>
+         <li class="nav-item">
+          <a class="nav-link" href="user.php">CADASTRA USUÁRIO</a>
+         </li>
+         <li class="nav-item">
+          <a class="nav-link" href="login.php">SAIR</a>
+         </li>
+       </ul>
+      </div>
+    </nav>
+
+    <img src="https://4.bp.blogspot.com/-m1WwbPYUV0U/VdHSD1q6fFI/AAAAAAAACCw/esmMxWGi58g/s1600/prodeb.jpg"  id="logo2" class="rounded mx-auto d-block my-2" alt="prodeb" width="100px" heigth="100px">
+
     <?php 
         require_once 'conexao.php';
-    ?>
-    <img src="https://4.bp.blogspot.com/-m1WwbPYUV0U/VdHSD1q6fFI/AAAAAAAACCw/esmMxWGi58g/s1600/prodeb.jpg"  id="logo2" class="rounded mx-auto d-block my-2" alt="prodeb" width="100px" heigth="100px">
-                            
+    ?>                  
     <section id="sect" >
-        <h3><a href="index.php" class="fas fa-home  mx-3 d-flex justify-content-center"> INÍCIO</a></h3>
             <nav class="navbar navbar-light bg-light">
 
-                <form action="relatorio.php" class="form-inline" method="GET">
+                <form action="relatorio.php" class="form-inline" method="POST">
 
                     <select id="select" class="custom-select mr-1" >
                         <option value="Codigo"selected > Código</option> 
                         <option value="Data">Data</option>
                         <option id= "opt3">Código/Data</option>
                     </select>
-                    <input class="form-control mr-1" name="valor" type="search" placeholder="Digite o Código..." aria-label="Search" >
+                    <input class="form-control mr-1" name="valor" type="number" placeholder="Digite o Código..." aria-label="Search">
                     <input class="form-control mr-1 "  name="date"  placeholder="Digite a Data...">
                     <button class="btn btn-outline-primary " type="submit" ><i class="fas fa-search"></i></button>
                 </form>
@@ -69,7 +91,7 @@
                             }
                         ?>
                             
-                        <a class="page-link" href="relatorio.php?pagina=<?php echo $pagina_anterior ; if(isset($_REQUEST["valor"])) { ?>&valor=<?php echo $_REQUEST["valor"]; }if(isset($_REQUEST["date"])){ ?>&date=<?php
+                        <a class="page-link" href="relatorio.php?pagina=<?php echo $pagina_anterior ;if(isset($_REQUEST["date"])){ ?>&date=<?php
                                 echo $_REQUEST["date"];
                               }?>"><i class="fas fa-arrow-circle-left"></i></a>
 
@@ -79,7 +101,7 @@
                             $inicio = $pagina - 4;
                             $limite = $pagina + 4;
                             if($inicio < 0){  //  condição para não ter numeraçao paginas negativas
-                                $inicio = 0; 
+                                $inicio = 1; 
                             }
                             for($i=$inicio;$i < $limite;$i++)
                             {
@@ -91,14 +113,7 @@
                         ?>
                         <?php if($i <= $numPaginas){  //  condição para não ter numeraçao paginas negativas e não ultrapasse o limite de paginas com registros?> 
                     <li class="<?php echo $pageitem; ?>">
-                        <a class="page-link" href="relatorio.php?pagina=<?php echo $i; 
-                            if(isset($_REQUEST["valor"])) {?>&valor=<?php 
-                                echo $_REQUEST["valor"];
-                              }
-                              if(isset($_REQUEST["date"])){ ?>&date=<?php
-                                echo $_REQUEST["date"];
-                              }
-                              ?>"><?php if($i==0){ $i=1; } echo $i; // condição para não ter numeraçao paginas negativas e colocando numeração da paginação ?></a>
+                        <a class="page-link" href="relatorio.php?pagina=<?php echo $i; ?>"><?php if($i==0){ $i=1; } echo $i; // condição para não ter numeraçao paginas negativas e colocando numeração da paginação ?></a>
                     </li>
                             <?php } ?>
                      
@@ -114,9 +129,7 @@
                                     
                                 } 
                             ?>
-                        <a class="page-link" href="relatorio.php?pagina=<?php echo $pagina_proximo;  if(isset($_REQUEST["valor"])) { ?>&valor=<?php echo $_REQUEST["valor"];if(isset($_REQUEST["date"])){ ?>&date=<?php
-                                echo $_REQUEST["date"];
-                              } } ?>"><i class="fas fa-arrow-circle-right"></i></a>
+                        <a class="page-link" href="relatorio.php?pagina=<?php echo $pagina_proximo; ?>"><i class="fas fa-arrow-circle-right"></i></a>
                     </li>
                 </ul>
             </nav>
@@ -126,6 +139,8 @@
     <footer>
         <h2>Copyright&copy;.2020, PRODEB</h2>
     </footer> 
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         <script src="Java Script/relatorio.js"></script>
         <script>
             

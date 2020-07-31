@@ -13,35 +13,68 @@
     </head>
 
     <body onload="setInterval('time()',2000)">
-        <img src="https://4.bp.blogspot.com/-m1WwbPYUV0U/VdHSD1q6fFI/AAAAAAAACCw/esmMxWGi58g/s1600/prodeb.jpg" id="logo1" alt="prodeb" class="rounded mx-auto d-block my-2" width="100px" heigth="100px">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+     <a class="navbar-brand" href="index.php">PRODEB</a>
+     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+     </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown" >
+       <ul class="navbar-nav">
+         <li class="nav-item active">
+          <a class="nav-link" href="index.php">ÍNICIO</a>
+         </li>
+         <li class="nav-item">
+          <a class="nav-link" href="relatorio.php">RELATORIO</a>
+         </li>
+         <li class="nav-item">
+          <a class="nav-link" href="user.php">CADASTRA USUÁRIO</a>
+         </li>
+         <li class="nav-item">
+          <a class="nav-link" href="login.php">SAIR</a>
+         </li>
+       </ul>
+      </div>
+    </nav>
+    
+
         
-            <?php    
-            if (isset($_GET['res']))
+            <?php 
+            session_start(); 
+            if(empty($_SESSION['login']) || empty($_SESSION['senha']))
+                {
+                    unset($_SESSION['login']);
+                    unset($_SESSION['senha']);
+                    header('location:login.php');
+                }
+
+            if (isset($_SESSION['res']))
             { ?>
-                <div class="d-flex justify-content-center alert alert-success alert-dismissible fade show" role="alert">
-                    <?php $result = $_GET['res']; echo $result; ?>
+                <div class="d-flex justify-content-center <?php echo $_SESSION['cor']; ?> alert-dismissible fade show" role="alert">
+                    <?php $result = $_SESSION['res']; echo $result; unset($_SESSION['res']); ?>
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                 </div>
       <?php } ?>
-   
-        <div class="d-flex justify-content-center" id="main">
-            <fieldset>
 
-                <a href="relatorio.php?" class="fas fa-paste float-left ml-2" id="link1"></a>
+      <img src="https://4.bp.blogspot.com/-m1WwbPYUV0U/VdHSD1q6fFI/AAAAAAAACCw/esmMxWGi58g/s1600/prodeb.jpg" id="logo1" alt="prodeb" class="rounded mx-auto d-block my-2" width="100px" heigth="100px">
+   
+        <div class="d-flex justify-content-center " id="main">
+            <fieldset >
+
                 <div id="horario"name="horas" class="float-right mr-4">
                     <strong> Horário </strong>
                 </div>
 
-                <div class="d-flex justify-content-center mt-5 mr-5">      
+                <div class="d-flex justify-content-center mt-5 ">      
                     <button class="tecladisplay" id="btn1" name="btn11"></button>
                     <button class="tecladisplay" id="btn2" name="btn22"></button>
                     <button class="tecladisplay" id="btn3" name="btn33"></button>
                     <button class="tecladisplay" id="btn4" name="btn44"></button>           
                 </div>
 
-                <i class="fas fa-backspace float-right mr-5" id="backspace" style="font-size: 3em;" onclick="delet()"></i><br><br> 
+                <i class="fas fa-backspace float-right mr-4" id="backspace" style="font-size: 3em;" onclick="delet()"></i><br><br> 
             
                 <div class="d-flex justify-content-around mt-3">
                     <button class="teclas" >7</button>        
