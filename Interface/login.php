@@ -57,7 +57,7 @@
             <div class="d-flex justify-content-center">
                 <div id="testa" class="d-flex justify-content-center align-items-center">                   
                     <div class="d-flex flex-column flex-wrap">
-                    <i class="fas fa-users ml-5" style="font-size: 3em;"></i>
+                    <i class="fas fa-users  my-2 d-flex justify-content-center" style="font-size: 3em;"></i>
                         <form action="validy_user.php" method="get" > 
                         <div class="form-group">
                         <input type = "text" name="login" placeholder="Digite seu login..." class="form-control" required>   
