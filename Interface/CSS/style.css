@@ -42,8 +42,12 @@ footer{
         text-align: center;
  
       }
-#footer{
-        margin-top: 120px;
+.foot{
+        bottom: 0;
+        left: 0;
+        height: 40px;
+        position: fixed;
+        width: 100%;
 }
 
 
@@ -52,6 +56,10 @@ footer{
         background-color: rgb(236, 244, 245);
      }
 
+.btn-custom {
+	padding: 1px 15px 3px 2px;
+	border-radius: 50px;
+}
 
 @media screen and (min-height: 730px)
 {
@@ -66,6 +74,7 @@ footer{
         #logo2{
                 width: 200px;
               }   
+    
 }
 
 
@@ -84,6 +93,13 @@ footer{
         #select{
                 width: 100px; 
         }
+
+        .foot{
+                position: fixed;
+        }
+        #fot{
+                position: relative;
+        }
             
               
 }
@@ -101,5 +117,17 @@ footer{
         #select{
                 width: 90px; 
         }
+
+        #sect{
+                position: absolute;
+        }
+
+        .foot{
+                position: fixed;
+        }
+        #fot{
+                position: relative;
+        }
+            
               
 }

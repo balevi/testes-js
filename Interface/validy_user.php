@@ -17,7 +17,7 @@ $verificar  = isset($_REQUEST["login"])&& isset($_REQUEST["senha"]) ;
         }else{
             unset ($_SESSION['login']);
             unset ($_SESSION['senha']);
-            $_SESSION['erro'] = "Dados incorretos!";
+            $_SESSION['erro'] = "Usuário Invalído!";
             header('Location: login.php');
         }
         

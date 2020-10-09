@@ -15,7 +15,7 @@
     <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-     <a class="navbar-brand" href="#">PRODEB</a>
+     <a class="navbar-brand" href="index.php">PRODEB</a>
      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
      </button>
@@ -61,10 +61,10 @@
                     <i class="fas fa-user-plus d-flex justify-content-center my-1" style="font-size: 2em;"></i>
                         <form action="create_user.php" method="get" > 
                         <div class="form-group">
-                        <input type = "text" name="nome" placeholder="Digite o Nome..." class="form-control" required>   
-                        <input type = "text" name="login" placeholder="Digite o login..." class="form-control" required>   
-                        <input type = "password" name="senha" placeholder = "Digite a senha.." class="form-control" required>    
-                        <input type="submit" value="SALVAR"id="submit" class="form-control">
+                        <input type = "text" name="nome" placeholder="Digite o Nome..." class="form-control my-1" required>   
+                        <input type = "text" name="login" placeholder="Digite o login..." class="form-control my-1" required>   
+                        <input type = "password" name="senha" placeholder = "Digite a senha..." class="form-control my-1" required>    
+                        <input type="submit" class="float-right btn btn-outline-info btn-block btn-custom my-1" value="CADASTRAR"id="submit" class="form-control">
                         </div>
                         </form>
                     </div>
@@ -84,8 +84,8 @@
 
 
         
-        <footer id="footer">
-            <h2>Copyright&copy;.2020, PRODEB</h2>
+        <footer class="foot ">
+            <h2 >Copyright&copy;.2020, PRODEB</h2>
         </footer>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>

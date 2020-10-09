@@ -15,7 +15,7 @@
     <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-     <a class="navbar-brand" href="#">PRODEB</a>
+     <a class="navbar-brand" href="index.php">PRODEB</a>
      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
      </button>
@@ -60,9 +60,9 @@
                     <i class="fas fa-users  my-2 d-flex justify-content-center" style="font-size: 3em;"></i>
                         <form action="validy_user.php" method="get" > 
                         <div class="form-group">
-                        <input type = "text" name="login" placeholder="Digite seu login..." class="form-control" required>   
-                        <input type = "password" name="senha" placeholder = "Digite sua senha.." class="form-control" required>    
-                        <input type="submit" value="ENTRA"id="submit" class="form-control">
+                        <input type = "text" name="login" placeholder="Digite seu login..." class="form-control my-1" required>   
+                        <input type = "password" name="senha" placeholder = "Digite sua senha..." class="form-control my-1" required>    
+                        <input type="submit" value="ENTRA"id="submit" class="form-control btn btn-outline-info btn-custom my-1">
                         </div>
                         </form>
                     </div>
@@ -81,7 +81,7 @@
 
 
         
-        <footer id="footer">
+        <footer class="foot">
             <h2>Copyright&copy;.2020, PRODEB</h2>
         </footer>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

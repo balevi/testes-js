@@ -13,7 +13,7 @@
 <body>
     
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-     <a class="navbar-brand" href="#">PRODEB</a>
+     <a class="navbar-brand" href="index.php">PRODEB</a>
      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
      </button>
@@ -40,7 +40,7 @@
     <?php 
         require_once 'conexao.php';
     ?>                  
-    <section id="sect" >
+    <section id="sect"  >
             <nav class="navbar navbar-light bg-light">
 
                 <form action="relatorio.php" class="form-inline" method="POST">
@@ -56,7 +56,7 @@
                 </form>
 
             </nav>
-            <table class="table table-hover table-sm table-striped" id="tabela">
+            <table class="table table-hover table-sm table-striped">
                 <thead class="thead-dark">
                     <tr>
                         <th><h5>Código</h5></th>
@@ -75,7 +75,7 @@
                             <td><?php echo $dado["tipo"]; ?></td>
                             <td><?php echo $dado["horas"]; ?></td>
                             <td><?php echo $dado["data"]; ?></td>
-                            <td><a href="#" class ="del" id="<?php echo $dado["id"]; ?>"><i class="fas fa-times-circle"style="font-size: 2em;color: red"></i></a></td>
+                            <td><a href="#" class ="del" id="<?php echo $dado["id"]; ?>"><i class="fas fa-times-circle btn btn-outline-danger"style="font-size: 1em;"></i></a></td>
                         </tr>       
                 <?php }?>
             </table>         
