@@ -1,7 +1,13 @@
 <?php
     $msg = "";
     $verificar = isset($_REQUEST["id"]);
-        if ($verificar){
+    $status = 0;
+    if(isset($_REQUEST["confir"])){
+        $status = 1;       
+    }
+
+        if ($verificar == true && $status == 1){
+            
         $id = $_REQUEST["id"];
         $con = mysqli_connect("localhost", "root" , "","controle") or die("Mensagem");
         $res = mysqli_query($con,"delete from interface where id='$id'"); 
@@ -19,5 +25,10 @@
     if (isset($_GET['pagina'])){
         $pagina = $_GET['pagina'];
     }
-    header("location:relatorio.php?pagina=$pagina");
+    if($status == 0){
+    $_SESSION['confirmed'] = $_REQUEST["id"];
+    }
+   // header("location:relatorio.php");
+
+   header("location:relatorio.php?pagina=$pagina");
     ?>

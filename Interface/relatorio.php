@@ -40,7 +40,7 @@
     <?php 
         require_once 'conexao.php';
     ?>                  
-    <section id="sect"  >
+    <section id="sect">
             <nav class="navbar navbar-light bg-light">
 
                 <form action="relatorio.php" class="form-inline" method="POST">
@@ -75,7 +75,7 @@
                             <td><?php echo $dado["tipo"]; ?></td>
                             <td><?php echo $dado["horas"]; ?></td>
                             <td><?php echo $dado["data"]; ?></td>
-                            <td><a href="#" class ="del" id="<?php echo $dado["id"]; ?>"><i class="fas fa-times-circle btn btn-outline-danger"style="font-size: 1em;"></i></a></td>
+                            <td><a href="delete.php?pagina= <?php if(isset($_GET['pagina'])){echo$_GET['pagina'];}else{echo 1;}?>" class ="del" id="<?php echo $dado["id"]; ?>"><i class="fas fa-times-circle btn btn-outline-danger"style="font-size: 1em;"></i></a></td>
                         </tr>       
                 <?php }?>
             </table>         
@@ -144,24 +144,21 @@
         <script src="Java Script/relatorio.js"></script>
         <script>
             
-            function confirmed(event) //confirmação para excluir registro e coloca no href link para o delete e salvamento da pagina atual
-            {
-                let resp= confirm(`Deseja Realmente Excluir?`)
-                if (resp==true)
-                {
+    
            
                     for(var i=0;i<del.length;i++)
                     {
                         del[i].href=`delete.php?id=${del[i].id}&pagina= <?php if(isset($_GET['pagina'])){echo$_GET['pagina'];}else{echo 1;}?>`
                     }
         
-                }
-            }
-
+            
+                /*
             for(var i=0;i<del.length;i++)
             {
-            del[i].addEventListener('click',confirmed,false);
+                del[i].href=`delete.php?pagina= <?php //if(isset($_GET['pagina'])){echo$_GET['pagina'];}else{echo 1;}?>`
+            //del[i].addEventListener('click',confirmed,false);
             }
+            */
         </script>
    </body>
 </html>

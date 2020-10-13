@@ -31,6 +31,20 @@
                 </div>
       <?php }
         
+        if (isset($_SESSION['confirmed']))
+            { ?>
+                <div class="d-flex justify-content-center alert alert-warning alert-dismissible fade show" role="alert">
+                    <?php  echo 'Deseja Realmente Excluir?';?>
+                    <a class="btn btn-outline-danger far fa-check-circle ml-2" href="delete.php?pagina=<?php if(isset($_GET['pagina'])){echo$_GET['pagina'];}else{echo 1;} ?>&confir=<?php echo 1;?>&id= <?php echo $_SESSION['confirmed']; ?> "> </a>    
+                    <a class="btn btn-outline-success ml-2" href="relatorio.php" >Cancelar</a>   
+                       
+                   <?php unset($_SESSION['confirmed']); ?>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+      <?php }
+        
 
         if (isset($_REQUEST['valor']) && empty($_REQUEST["date"])  ){
             if (!ctype_space($_REQUEST['valor']) && $_REQUEST["valor"] != "" ) {
